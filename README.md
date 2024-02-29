@@ -41,7 +41,12 @@ Replace `leggedrobotics` with your `username`.
 Small notice you can clone a repo using ssh or https. 
 I recommend to setup ssh-keys and always use ssh. 
 
+Then go to the Github Settings to right:  
+![alt text](docs/repo.jpg)
 
+
+Activate under General the following Features:  
+![alt text](docs/features.jpg)
 
 ### Submission instructions
 You at first create a fork of the plr-exercise repository under your local GitHub username.  
@@ -49,7 +54,7 @@ For each task you create a branch called: `dev/task_X`
 You commit all the changes necessary for this task to this branch and push the changes to GitHub.  
 To finish a task you create a pull request from `dev/task_X` to `main`. 
 The title of the pull request is the task description below.  
-
+Do not delete the branches after merging the PR.  
 
 Task Descriptions:
 - **Task 0:** Run train.py and create an issue and complain about your low test score.
@@ -165,8 +170,8 @@ Add docstrings to all classes and functions: [https://peps.python.org/pep-0257/]
 Here are some workflows by the RSL that may help you: [https://github.com/leggedrobotics/workflows](https://github.com/leggedrobotics/workflows)
 
 
-
 ## Things we did not cover
+- Timing - check out the `timing.py` and try to understand why the times are different 
 - Typing
 - GitHub Actions
 
