@@ -7,7 +7,7 @@ import torch.optim as optim
 from torchvision import datasets, transforms
 from torch.optim.lr_scheduler import StepLR
 
-
+# Task 0: The accuracy is too low :(
 class Net(nn.Module):
     def __init__(self):
 
