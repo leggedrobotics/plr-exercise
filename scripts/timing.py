@@ -10,6 +10,12 @@ import time
 
 class Net(nn.Module):
     def __init__(self):
+        """
+        Initializes the neural network model.
+
+        This method sets up the layers and parameters of the neural network model.
+
+        """
         super(Net, self).__init__()
         self.conv1 = nn.Conv2d(1, 32, 3, 1)
         self.conv2 = nn.Conv2d(32, 64, 3, 1)
@@ -19,6 +25,15 @@ class Net(nn.Module):
         self.fc2 = nn.Linear(128, 10)
 
     def forward(self, x):
+        """
+        Forward pass of the neural network.
+
+        Args:
+            x (torch.Tensor): Input tensor.
+
+        Returns:
+            torch.Tensor: Output tensor after passing through the network.
+        """
         x = self.conv1(x)
         x = F.relu(x)
         x = self.conv2(x)
@@ -35,15 +50,33 @@ class Net(nn.Module):
 
 
 def main():
+    """
+    Main function for timing script.
+
+    This function performs timing experiments on a PyTorch model using both CPU and GPU.
+    It sets up the training settings, loads the MNIST dataset, and measures the execution time of the model.
+    The timing experiments include warm-up runs and multiple iterations with and without synchronization.
+
+    """
     # Training settings
     parser = argparse.ArgumentParser(description="PyTorch MNIST Example")
     parser.add_argument(
-        "--batch-size", type=int, default=64, metavar="N", help="input batch size for training (default: 64)"
+        "--batch-size",
+        type=int,
+        default=64,
+        metavar="N",
+        help="input batch size for training (default: 64)",
     )
     parser.add_argument(
-        "--test-batch-size", type=int, default=1000, metavar="N", help="input batch size for testing (default: 1000)"
+        "--test-batch-size",
+        type=int,
+        default=1000,
+        metavar="N",
+        help="input batch size for testing (default: 1000)",
     )
-    parser.add_argument("--no-cuda", action="store_true", default=False, help="disables CUDA training")
+    parser.add_argument(
+        "--no-cuda", action="store_true", default=False, help="disables CUDA training"
+    )
     args = parser.parse_args()
     use_cuda = not args.no_cuda and torch.cuda.is_available()
 
@@ -61,7 +94,9 @@ def main():
         train_kwargs.update(cuda_kwargs)
         test_kwargs.update(cuda_kwargs)
 
-    transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))])
+    transform = transforms.Compose(
+        [transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))]
+    )
     dataset1 = datasets.MNIST("../data", train=True, download=True, transform=transform)
     train_loader = torch.utils.data.DataLoader(dataset1, **train_kwargs)
     data, target = next(iter(train_loader))

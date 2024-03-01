@@ -11,9 +11,22 @@ from plr_exercise.models.cnn import Net
 
 
 def train(args, model, device, train_loader, optimizer, epoch):
+    """
+    Trains the model on the training data for specified epochs.
+
+    Args:
+        args (argparse.Namespace): Command-line arguments.
+        model (torch.nn.Module): The model to be trained.
+        device (torch.device): The device to run the training on.
+        train_loader (torch.utils.data.DataLoader): The data loader for the training data.
+        optimizer (torch.optim.Optimizer): The optimizer used for training.
+        epoch (int): The current epoch number.
+
+    Returns:
+        None
+    """
     model.train()
     for batch_idx, (data, target) in enumerate(train_loader):
-
         data, target = data.to(device), target.to(device)
         optimizer.zero_grad()
         output = model(data)
@@ -36,6 +49,18 @@ def train(args, model, device, train_loader, optimizer, epoch):
 
 
 def test(model, device, test_loader, epoch):
+    """
+    Evaluate the performance of the model on the test dataset.
+
+    Args:
+        model (torch.nn.Module): The trained model to be evaluated.
+        device (torch.device): The device (CPU or GPU) to perform the evaluation on.
+        test_loader (torch.utils.data.DataLoader): The data loader for the test dataset.
+        epoch (int): The current epoch number.
+
+    Returns:
+        None
+    """
     model.eval()
     test_loss = 0
     correct = 0
@@ -67,6 +92,31 @@ def test(model, device, test_loader, epoch):
 
 
 def main():
+    """
+    Main function for training a PyTorch MNIST model.
+
+    This function performs the following steps:
+    1. Logs in to Weights & Biases (wandb) for experiment tracking.
+    2. Parses command line arguments for training settings.
+    3. Sets up the device (CPU or GPU) for training.
+    4. Loads the MNIST dataset and creates data loaders.
+    5. Initializes the wandb run for experiment tracking.
+    6. Creates the model and optimizer.
+    7. Sets up the learning rate scheduler.
+    8. Trains the model for the specified number of epochs.
+    9. Evaluates the model on the test set after each epoch.
+    10. Saves the trained model if specified.
+
+    """
+    wandb.login()
+
+    # Training settings
+    parser = argparse.ArgumentParser(description="PyTorch MNIST Example")
+    # ... rest of the code ...
+
+
+def main():
+    """ """
     wandb.login()
 
     # Training settings
