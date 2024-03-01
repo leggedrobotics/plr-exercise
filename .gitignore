@@ -1,4 +1,5 @@
 results/
+data/
 *.pyc
 plr_exercise.egg-info/*
 results/*
