@@ -1,3 +1,4 @@
+results/
 *.pyc
-plr_exercise.egg-info/
-results*
+plr_exercise.egg-info/*
+results/*
