@@ -1,12 +1,14 @@
 from __future__ import print_function
 import argparse
 import torch
-import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 from torchvision import datasets, transforms
 from torch.optim.lr_scheduler import StepLR
 from plr_exercise.models.cnn import Net
+from plr_exercise import PLR_ROOT_DIR
+import wandb
+import os
 
 
 def train(args, model, device, train_loader, optimizer, epoch):
@@ -29,6 +31,7 @@ def train(args, model, device, train_loader, optimizer, epoch):
                     loss.item(),
                 )
             )
+            wandb.log({"epoch": epoch, "train_loss": loss.item()})
             if args.dry_run:
                 break
 
@@ -54,6 +57,7 @@ def test(model, device, test_loader, epoch):
             test_loss, correct, len(test_loader.dataset), 100.0 * correct / len(test_loader.dataset)
         )
     )
+    wandb.log({"test_loss": test_loss, "epoch": epoch})
 
 
 def main():
@@ -63,9 +67,9 @@ def main():
         "--batch-size", type=int, default=64, metavar="N", help="input batch size for training (default: 64)"
     )
     parser.add_argument(
-        "--test-batch-size", type=int, default=10, metavar="N", help="input batch size for testing (default: 1000)"
+        "--test-batch-size", type=int, default=1000, metavar="N", help="input batch size for testing (default: 1000)"
     )
-    parser.add_argument("--epochs", type=int, default=1, metavar="N", help="number of epochs to train (default: 14)")
+    parser.add_argument("--epochs", type=int, default=2, metavar="N", help="number of epochs to train (default: 14)")
     parser.add_argument("--lr", type=float, default=1.0, metavar="LR", help="learning rate (default: 1.0)")
     parser.add_argument("--gamma", type=float, default=0.7, metavar="M", help="Learning rate step gamma (default: 0.7)")
     parser.add_argument("--no-cuda", action="store_true", default=False, help="disables CUDA training")
@@ -80,6 +84,18 @@ def main():
     )
     parser.add_argument("--save-model", action="store_true", default=False, help="For Saving the current Model")
     args = parser.parse_args()
+
+    wandb.login()
+    os.makedirs(os.path.join(PLR_ROOT_DIR, "results"), exist_ok=True)
+    run = wandb.init(
+        dir=os.path.join(PLR_ROOT_DIR, "results"),
+        project="plr-project",
+        config=args,
+        settings=wandb.Settings(code_dir=PLR_ROOT_DIR),
+    )
+    include_fn = lambda path, root: path.endswith(".py") or path.endswith(".yaml")
+    run.log_code(name="source_files", root=PLR_ROOT_DIR, include_fn=include_fn)
+
     use_cuda = not args.no_cuda and torch.cuda.is_available()
 
     torch.manual_seed(args.seed)
@@ -113,6 +129,8 @@ def main():
 
     if args.save_model:
         torch.save(model.state_dict(), "mnist_cnn.pt")
+
+    wandb.finish()
 
 
 if __name__ == "__main__":
