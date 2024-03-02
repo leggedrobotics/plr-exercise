@@ -7,8 +7,10 @@ import torch.optim as optim
 from torchvision import datasets, transforms
 from torch.optim.lr_scheduler import StepLR
 
-from plr_exercise.models import Net
+from plr_exercise.models.cnn import Net
 
+import wandb
+from plr_exercise import PLR_ROOT_DIR
 
 
 def train(args, model, device, train_loader, optimizer, epoch):
@@ -31,6 +33,11 @@ def train(args, model, device, train_loader, optimizer, epoch):
                     loss.item(),
                 )
             )
+            
+            complete = 100.0 * batch_idx / len(train_loader) # complete percentage. 
+
+            # Log over to wandb: 
+            wandb.log({"epoch": epoch, "loss": loss.item(), "%:": complete })
             if args.dry_run:
                 break
 
@@ -56,6 +63,10 @@ def test(model, device, test_loader, epoch):
             test_loss, correct, len(test_loader.dataset), 100.0 * correct / len(test_loader.dataset)
         )
     )
+
+    accuracy = 100.0 *correct / len(test_loader.dataset)
+    # Adds Wandb logging
+    wandb.log({"Test Loss": test_loss, "Test Accuracy": accuracy, "Epoch":epoch})
 
 
 def main():
@@ -83,6 +94,19 @@ def main():
     parser.add_argument("--save-model", action="store_true", default=False, help="For Saving the current Model")
     args = parser.parse_args()
     use_cuda = not args.no_cuda and torch.cuda.is_available()
+
+    #Setup wandb
+    wandb.init(project="plr-exercise-jose",
+               name="01_MNIST_RunTest",
+               config={
+                   "learning_rate": args.lr,
+                   "epochs": args.epochs,
+                   "batch_size": args.batch_size,
+                   "test_batch_size":args.test_batch_size,
+                   "gamma":args.gamma,
+                   "network":"CNN",
+               },
+               )
 
     torch.manual_seed(args.seed)
 
