@@ -135,6 +135,7 @@ def main():
     scheduler = StepLR(optimizer,    step_size=1, gamma=args.gamma)
     for epoch in range(args.epochs):
         train(args, model, device, train_loader, optimizer, epoch)
+        # Testing accuracy too low
         test(model, device, test_loader, epoch)
         scheduler.step()
 
