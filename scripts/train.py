@@ -159,7 +159,7 @@ def main():
 
     opt_study = optuna.create_study(direction='minimize')
     opt_study.optimize(lambda trial: train_optuna(trial, args,model,device), n_trials=5)
-    print(f'Output Parameters: {opt_study.best_parameters}')
+    print(f'Output Parameters: {opt_study.best_params}')
 
     if args.save_model:
         torch.save(model.state_dict(), "mnist_cnn.pt")
