@@ -1,5 +1,6 @@
 results/
 data/
+scripts/wandb/
 *.pyc
 plr_exercise.egg-info/
 results/*
