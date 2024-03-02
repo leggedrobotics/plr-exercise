@@ -78,6 +78,7 @@ def train_optuna(trial, args, model, device):
     optim_lr = trial.suggest_float("lr", 1e-5, 1e-1, log=True)
     optim_batch_size = trial.suggest_categorical("batch_size", [64,128,256])
     optim_gamma = trial.suggest_float("gamma", 0.5,0.99)
+    optim_epoch = trial.suggest_int("epochs",0,7) # unused for now. How to use it? 
 
     # Code from the previous version of main()
     use_cuda = not args.no_cuda and torch.cuda.is_available()
