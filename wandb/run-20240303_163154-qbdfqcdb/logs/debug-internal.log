@@ -1,0 +1,114 @@
+2024-03-03 16:31:54,459 INFO    StreamThr :22625 [internal.py:wandb_internal():86] W&B internal server running at pid: 22625, started at: 2024-03-03 16:31:54.458573
+2024-03-03 16:31:54,459 DEBUG   HandlerThread:22625 [handler.py:handle_request():146] handle_request: status
+2024-03-03 16:31:54,461 INFO    WriterThread:22625 [datastore.py:open_for_write():87] open: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/run-qbdfqcdb.wandb
+2024-03-03 16:31:54,462 DEBUG   SenderThread:22625 [sender.py:send():382] send: header
+2024-03-03 16:31:54,465 DEBUG   SenderThread:22625 [sender.py:send():382] send: run
+2024-03-03 16:31:55,827 INFO    SenderThread:22625 [dir_watcher.py:__init__():211] watching files in: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files
+2024-03-03 16:31:55,827 INFO    SenderThread:22625 [sender.py:_start_run_threads():1136] run started: qbdfqcdb with start time 1709479914.458552
+2024-03-03 16:31:55,833 DEBUG   HandlerThread:22625 [handler.py:handle_request():146] handle_request: check_version
+2024-03-03 16:31:55,834 DEBUG   SenderThread:22625 [sender.py:send_request():409] send_request: check_version
+2024-03-03 16:31:56,915 DEBUG   HandlerThread:22625 [handler.py:handle_request():146] handle_request: run_start
+2024-03-03 16:31:56,917 DEBUG   HandlerThread:22625 [system_info.py:__init__():27] System info init
+2024-03-03 16:31:56,917 DEBUG   HandlerThread:22625 [system_info.py:__init__():42] System info init done
+2024-03-03 16:31:56,917 INFO    HandlerThread:22625 [system_monitor.py:start():194] Starting system monitor
+2024-03-03 16:31:56,917 INFO    SystemMonitor:22625 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-03-03 16:31:56,919 INFO    HandlerThread:22625 [system_monitor.py:probe():214] Collecting system info
+2024-03-03 16:31:56,919 INFO    SystemMonitor:22625 [interfaces.py:start():190] Started cpu monitoring
+2024-03-03 16:31:56,921 INFO    SystemMonitor:22625 [interfaces.py:start():190] Started disk monitoring
+2024-03-03 16:31:56,922 INFO    SystemMonitor:22625 [interfaces.py:start():190] Started memory monitoring
+2024-03-03 16:31:56,923 INFO    SystemMonitor:22625 [interfaces.py:start():190] Started network monitoring
+2024-03-03 16:31:56,928 DEBUG   HandlerThread:22625 [system_info.py:probe():151] Probing system
+2024-03-03 16:31:56,930 DEBUG   HandlerThread:22625 [system_info.py:_probe_git():136] Probing git
+2024-03-03 16:31:56,933 DEBUG   HandlerThread:22625 [system_info.py:_probe_git():144] Probing git done
+2024-03-03 16:31:56,933 DEBUG   HandlerThread:22625 [system_info.py:probe():199] Probing system done
+2024-03-03 16:31:56,933 DEBUG   HandlerThread:22625 [system_monitor.py:probe():223] {'os': 'Linux-6.5.0-21-generic-x86_64-with-glibc2.35', 'python': '3.10.12', 'heartbeatAt': '2024-03-03T15:31:56.929021', 'startedAt': '2024-03-03T15:31:54.455804', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/home/mario/eth/plr/plr-exercise/scripts/train.py', 'codePathLocal': 'scripts/train.py', 'codePath': 'scripts/train.py', 'git': {'remote': 'git@github.com:mgomezandreu/plr-exercise.git', 'commit': '54293a491713b5f564be55a26fdc3d9e4a9dea4e'}, 'email': 'mario-gomez-andreu@outlook.com', 'root': '/home/mario/eth/plr/plr-exercise', 'host': 'mario-ThinkPad-E15-Gen-2', 'username': 'mario', 'executable': '/home/mario/venv/plr/bin/python3.10', 'cpu_count': 4, 'cpu_count_logical': 8, 'cpu_freq': {'current': 1276.0465, 'min': 400.0, 'max': 4700.0}, 'cpu_freq_per_core': [{'current': 1285.984, 'min': 400.0, 'max': 4700.0}, {'current': 1232.204, 'min': 400.0, 'max': 4700.0}, {'current': 1300.007, 'min': 400.0, 'max': 4700.0}, {'current': 1262.09, 'min': 400.0, 'max': 4700.0}, {'current': 1295.292, 'min': 400.0, 'max': 4700.0}, {'current': 1275.173, 'min': 400.0, 'max': 4700.0}, {'current': 1300.01, 'min': 400.0, 'max': 4700.0}, {'current': 1257.612, 'min': 400.0, 'max': 4700.0}], 'disk': {'/': {'total': 346.5176086425781, 'used': 273.8617820739746}}, 'memory': {'total': 15.316062927246094}}
+2024-03-03 16:31:56,934 INFO    HandlerThread:22625 [system_monitor.py:probe():224] Finished collecting system info
+2024-03-03 16:31:56,934 INFO    HandlerThread:22625 [system_monitor.py:probe():227] Publishing system info
+2024-03-03 16:31:56,934 INFO    HandlerThread:22625 [system_monitor.py:probe():229] Finished publishing system info
+2024-03-03 16:31:56,935 DEBUG   SenderThread:22625 [sender.py:send():382] send: files
+2024-03-03 16:31:56,935 INFO    SenderThread:22625 [sender.py:_save_file():1403] saving file wandb-metadata.json with policy now
+2024-03-03 16:31:56,938 DEBUG   HandlerThread:22625 [handler.py:handle_request():146] handle_request: python_packages
+2024-03-03 16:31:56,938 DEBUG   SenderThread:22625 [sender.py:send_request():409] send_request: python_packages
+2024-03-03 16:31:56,982 DEBUG   HandlerThread:22625 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-03 16:31:56,982 DEBUG   HandlerThread:22625 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-03 16:31:56,983 DEBUG   SenderThread:22625 [sender.py:send_request():409] send_request: stop_status
+2024-03-03 16:31:57,831 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_created():271] file/dir created: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/wandb-metadata.json
+2024-03-03 16:31:57,831 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_created():271] file/dir created: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/requirements.txt
+2024-03-03 16:31:57,895 DEBUG   SenderThread:22625 [sender.py:send():382] send: telemetry
+2024-03-03 16:31:58,829 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_created():271] file/dir created: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log
+2024-03-03 16:31:59,462 INFO    wandb-upload_0:22625 [upload_job.py:push():131] Uploaded file /tmp/tmp753mfp3gwandb/axjwshwx-wandb-metadata.json
+2024-03-03 16:31:59,707 DEBUG   HandlerThread:22625 [handler.py:handle_request():146] handle_request: status_report
+2024-03-03 16:32:00,830 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log
+2024-03-03 16:32:02,831 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log
+2024-03-03 16:32:04,833 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log
+2024-03-03 16:32:05,129 DEBUG   HandlerThread:22625 [handler.py:handle_request():146] handle_request: status_report
+2024-03-03 16:32:06,836 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log
+2024-03-03 16:32:08,839 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log
+2024-03-03 16:32:10,453 DEBUG   HandlerThread:22625 [handler.py:handle_request():146] handle_request: status_report
+2024-03-03 16:32:10,839 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log
+2024-03-03 16:32:11,939 DEBUG   HandlerThread:22625 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-03 16:32:11,939 DEBUG   HandlerThread:22625 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-03 16:32:11,940 DEBUG   SenderThread:22625 [sender.py:send_request():409] send_request: stop_status
+2024-03-03 16:32:12,841 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log
+2024-03-03 16:32:14,842 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log
+2024-03-03 16:32:15,860 DEBUG   HandlerThread:22625 [handler.py:handle_request():146] handle_request: status_report
+2024-03-03 16:32:16,842 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log
+2024-03-03 16:32:18,843 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log
+2024-03-03 16:32:20,845 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log
+2024-03-03 16:32:20,984 DEBUG   HandlerThread:22625 [handler.py:handle_request():146] handle_request: status_report
+2024-03-03 16:32:22,846 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log
+2024-03-03 16:32:24,847 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log
+2024-03-03 16:32:26,342 DEBUG   HandlerThread:22625 [handler.py:handle_request():146] handle_request: status_report
+2024-03-03 16:32:26,849 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log
+2024-03-03 16:32:26,939 DEBUG   HandlerThread:22625 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-03 16:32:26,939 DEBUG   HandlerThread:22625 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-03 16:32:27,923 DEBUG   SenderThread:22625 [sender.py:send_request():409] send_request: stop_status
+2024-03-03 16:32:28,851 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log
+2024-03-03 16:32:28,851 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/config.yaml
+2024-03-03 16:32:30,852 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log
+2024-03-03 16:32:32,854 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log
+2024-03-03 16:32:33,499 DEBUG   HandlerThread:22625 [handler.py:handle_request():146] handle_request: status_report
+2024-03-03 16:32:34,855 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log
+2024-03-03 16:32:36,856 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log
+2024-03-03 16:32:38,504 DEBUG   HandlerThread:22625 [handler.py:handle_request():146] handle_request: status_report
+2024-03-03 16:32:38,859 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log
+2024-03-03 16:32:40,860 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log
+2024-03-03 16:32:41,940 DEBUG   HandlerThread:22625 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-03 16:32:41,941 DEBUG   HandlerThread:22625 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-03 16:32:41,941 DEBUG   SenderThread:22625 [sender.py:send_request():409] send_request: stop_status
+2024-03-03 16:32:42,861 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log
+2024-03-03 16:32:44,862 INFO    Thread-12 :22625 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log
+2024-03-03 16:32:45,357 DEBUG   HandlerThread:22625 [handler.py:handle_request():146] handle_request: poll_exit
+2024-03-03 16:32:50,359 DEBUG   HandlerThread:22625 [handler.py:handle_request():146] handle_request: keepalive
+2024-03-03 16:32:55,360 DEBUG   HandlerThread:22625 [handler.py:handle_request():146] handle_request: keepalive
+2024-03-03 16:32:56,923 DEBUG   SystemMonitor:22625 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-03-03 16:32:56,958 INFO    cpu       :22625 [interfaces.py:monitor():140] Process cpu has exited.
+2024-03-03 16:32:56,958 DEBUG   SystemMonitor:22625 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2024-03-03 16:32:56,958 DEBUG   SystemMonitor:22625 [system_monitor.py:_start():183] Publishing last batch of metrics
+2024-03-03 16:32:56,959 INFO    memory    :22625 [interfaces.py:monitor():140] Process proc.memory.rssMB has exited.
+2024-03-03 16:32:59,525 WARNING StreamThr :22625 [internal.py:is_dead():414] Internal process exiting, parent pid 22598 disappeared
+2024-03-03 16:32:59,525 ERROR   StreamThr :22625 [internal.py:wandb_internal():152] Internal process shutdown.
+2024-03-03 16:32:59,959 INFO    HandlerThread:22625 [handler.py:finish():869] shutting down handler
+2024-03-03 16:32:59,959 INFO    HandlerThread:22625 [system_monitor.py:finish():203] Stopping system monitor
+2024-03-03 16:32:59,960 INFO    HandlerThread:22625 [interfaces.py:finish():202] Joined cpu monitor
+2024-03-03 16:32:59,960 INFO    HandlerThread:22625 [interfaces.py:finish():202] Joined disk monitor
+2024-03-03 16:32:59,960 INFO    HandlerThread:22625 [interfaces.py:finish():202] Joined memory monitor
+2024-03-03 16:32:59,960 INFO    HandlerThread:22625 [interfaces.py:finish():202] Joined network monitor
+2024-03-03 16:32:59,960 INFO    WriterThread:22625 [datastore.py:close():296] close: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/run-qbdfqcdb.wandb
+2024-03-03 16:33:01,055 ERROR   SenderThread:22625 [internal_api.py:execute():373] 500 response executing GraphQL.
+2024-03-03 16:33:01,055 ERROR   SenderThread:22625 [internal_api.py:execute():374] {"errors":[{"message":"context deadline exceeded","path":["project","run"]}],"data":{"project":{"run":null}}}
+2024-03-03 16:33:19,401 INFO    SenderThread:22625 [sender.py:finish():1572] shutting down sender
+2024-03-03 16:33:20,015 INFO    SenderThread:22625 [dir_watcher.py:finish():358] shutting down directory watcher
+2024-03-03 16:33:20,870 INFO    SenderThread:22625 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log
+2024-03-03 16:33:20,870 INFO    SenderThread:22625 [dir_watcher.py:finish():388] scan: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files
+2024-03-03 16:33:20,870 INFO    SenderThread:22625 [dir_watcher.py:finish():402] scan save: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/config.yaml config.yaml
+2024-03-03 16:33:20,870 INFO    SenderThread:22625 [dir_watcher.py:finish():402] scan save: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log output.log
+2024-03-03 16:33:20,870 INFO    SenderThread:22625 [dir_watcher.py:finish():402] scan save: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/requirements.txt requirements.txt
+2024-03-03 16:33:20,870 INFO    SenderThread:22625 [dir_watcher.py:finish():402] scan save: /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/wandb-metadata.json wandb-metadata.json
+2024-03-03 16:33:20,871 INFO    SenderThread:22625 [file_pusher.py:finish():172] shutting down file pusher
+2024-03-03 16:33:20,871 INFO    SenderThread:22625 [file_pusher.py:join():178] waiting for file pusher
+2024-03-03 16:33:21,933 INFO    wandb-upload_2:22625 [upload_job.py:push():131] Uploaded file /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/requirements.txt
+2024-03-03 16:33:23,217 INFO    wandb-upload_1:22625 [upload_job.py:push():131] Uploaded file /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/config.yaml
+2024-03-03 16:33:33,568 INFO    wandb-upload_0:22625 [upload_job.py:push():131] Uploaded file /home/mario/eth/plr/plr-exercise/wandb/run-20240303_163154-qbdfqcdb/files/output.log
+2024-03-03 16:33:33,886 INFO    SenderThread:22625 [file_stream.py:finish():595] file stream finish called
+2024-03-03 16:33:34,158 INFO    SenderThread:22625 [file_stream.py:finish():599] file stream finish is done

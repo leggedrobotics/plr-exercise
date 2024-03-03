@@ -5,6 +5,7 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torchvision import datasets, transforms
 from torch.optim.lr_scheduler import StepLR
+import wandb
 
 from plr_exercise.models.cnn import Net
 
@@ -32,6 +33,21 @@ def train(args, model, device, train_loader, optimizer, epoch):
             if args.dry_run:
                 break
 
+    train_loss = 0
+    correct = 0
+    with torch.no_grad():
+        for data, target in train_loader:
+
+            data, target = data.to(device), target.to(device)
+            output = model(data)
+            train_loss += F.nll_loss(output, target, reduction="sum").item()  # sum up batch loss
+            pred = output.argmax(dim=1, keepdim=True)  # get the index of the max log-probability
+            correct += pred.eq(target.view_as(pred)).sum().item()
+
+    train_loss /= len(train_loader.dataset)
+
+    wandb.log({"train_loss": train_loss}) 
+
 
 def test(model, device, test_loader, epoch):
     model.eval()
@@ -54,6 +70,8 @@ def test(model, device, test_loader, epoch):
             test_loss, correct, len(test_loader.dataset), 100.0 * correct / len(test_loader.dataset)
         )
     )
+
+    wandb.log({"test_loss": test_loss})   
 
 
 def main():
@@ -105,11 +123,26 @@ def main():
     model = Net().to(device)
     optimizer = optim.Adam(model.parameters(), lr=args.lr)
 
+    wandb.init(
+        project="plr_exercise",
+        config={
+            "learning_rate": args.lr,
+            "architecture": "CNN",
+            "dataset": "MNIST",
+            "epochs": args.epochs,
+            "batch_size": args.batch_size,
+            "gamma": args.gamma,
+            "seed": args.seed,
+        },
+    )
+
     scheduler = StepLR(optimizer, step_size=1, gamma=args.gamma)
     for epoch in range(args.epochs):
         train(args, model, device, train_loader, optimizer, epoch)
         test(model, device, test_loader, epoch)
         scheduler.step()
+
+    wandb.finish()
 
     if args.save_model:
         torch.save(model.state_dict(), "mnist_cnn.pt")
@@ -117,3 +150,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

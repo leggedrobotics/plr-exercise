@@ -1,0 +1,80 @@
+{
+    "os": "Linux-6.5.0-21-generic-x86_64-with-glibc2.35",
+    "python": "3.10.12",
+    "heartbeatAt": "2024-03-03T15:33:38.140585",
+    "startedAt": "2024-03-03T15:33:31.124498",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/mario/eth/plr/plr-exercise/scripts/train.py",
+    "codePathLocal": "scripts/train.py",
+    "codePath": "scripts/train.py",
+    "git": {
+        "remote": "git@github.com:mgomezandreu/plr-exercise.git",
+        "commit": "54293a491713b5f564be55a26fdc3d9e4a9dea4e"
+    },
+    "email": "mario-gomez-andreu@outlook.com",
+    "root": "/home/mario/eth/plr/plr-exercise",
+    "host": "mario-ThinkPad-E15-Gen-2",
+    "username": "mario",
+    "executable": "/home/mario/venv/plr/bin/python3.10",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 1520.1207500000003,
+        "min": 400.0,
+        "max": 4700.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2231.172,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 927.001,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 1858.775,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 1992.631,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 1866.608,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 1866.848,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 1448.507,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 1994.231,
+            "min": 400.0,
+            "max": 4700.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 346.5176086425781,
+            "used": 273.8624954223633
+        }
+    },
+    "memory": {
+        "total": 15.316062927246094
+    }
+}

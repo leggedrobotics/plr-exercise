@@ -1,0 +1,80 @@
+{
+    "os": "Linux-6.5.0-21-generic-x86_64-with-glibc2.35",
+    "python": "3.10.12",
+    "heartbeatAt": "2024-03-03T15:22:10.133596",
+    "startedAt": "2024-03-03T15:22:07.058420",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/mario/eth/plr/plr-exercise/scripts/train.py",
+    "codePathLocal": "scripts/train.py",
+    "codePath": "scripts/train.py",
+    "git": {
+        "remote": "git@github.com:mgomezandreu/plr-exercise.git",
+        "commit": "54293a491713b5f564be55a26fdc3d9e4a9dea4e"
+    },
+    "email": "mario-gomez-andreu@outlook.com",
+    "root": "/home/mario/eth/plr/plr-exercise",
+    "host": "mario-ThinkPad-E15-Gen-2",
+    "username": "mario",
+    "executable": "/home/mario/venv/plr/bin/python3.10",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 1103.989,
+        "min": 400.0,
+        "max": 4700.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1272.876,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 1261.597,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 1276.37,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 1269.994,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 400.0,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 1281.839,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 1268.594,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 800.642,
+            "min": 400.0,
+            "max": 4700.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 346.5176086425781,
+            "used": 273.86182403564453
+        }
+    },
+    "memory": {
+        "total": 15.316062927246094
+    }
+}
