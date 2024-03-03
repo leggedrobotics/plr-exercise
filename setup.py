@@ -8,8 +8,8 @@ INSTALL_REQUIRES = [
 setup(
     name="plr_exercise",
     version="1.0.0",
-    author="Jonas Frey",
-    author_email="jonfrey@ethz.ch",
+    author="Mario Gomez",
+    author_email="margomez@ethz.ch",
     packages=find_packages(),
     python_requires=">=3.7",
     description="A small example package",
