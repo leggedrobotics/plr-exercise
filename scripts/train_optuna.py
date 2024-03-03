@@ -63,33 +63,27 @@ def test(model, device, test_loader, epoch):
 
 
 def objective(trial, args, train_loader, test_loader):
-    # Sample hyperparameters
-    lr = trial.suggest_loguniform("lr", 1e-4, 1e-1)
-    epochs = trial.suggest_int("epochs", 5, 20)
+    learning_rate = trial.suggest_float("learning_rate", 1e-5, 1e-1)
+    epochs = trial.suggest_int("epochs", 1, 10)
 
-    # Initialize model, optimizer, and scheduler
+    device = torch.device("cpu")
     model = Net().to(device)
-    optimizer = optim.Adam(model.parameters(), lr=lr)
-    scheduler = StepLR(optimizer, step_size=1, gamma=args.gamma)
+    optimizer = optim.Adadelta(model.parameters(), lr=learning_rate)
 
-    # Training loop
     for epoch in range(epochs):
         train(args, model, device, train_loader, optimizer, epoch)
         test(model, device, test_loader, epoch)
-        scheduler.step()
 
-    # Calculate validation accuracy
-    model.eval()
+    test_loss = 0
     correct = 0
-    total = 0
     with torch.no_grad():
         for data, target in test_loader:
             data, target = data.to(device), target.to(device)
             output = model(data)
-            _, predicted = torch.max(output.data, 1)
-            total += target.size(0)
-            correct += (predicted == target).sum().item()
-    accuracy = correct / total
+            test_loss += F.nll_loss(output, target, reduction="sum").item()
+            pred = output.argmax(dim=1, keepdim=True)
+            correct += pred.eq(target.view_as(pred)).sum().item()
+    accuracy = correct / len(test_loader.dataset)
 
     return accuracy
 
@@ -152,11 +146,26 @@ def main():
     train_loader = torch.utils.data.DataLoader(dataset1, **train_kwargs)
     test_loader = torch.utils.data.DataLoader(dataset2, **test_kwargs)
 
-    model = Net().to(device)
-    optimizer = optim.Adam(model.parameters(), lr=args.lr)
+    # Set up Optuna study
+    study = optuna.create_study(direction="maximize")
+    study.optimize(lambda trial: objective(trial, args, train_loader, test_loader), n_trials=10)
 
+    # objective_partial = partial(objective, args, train_loader, test_loader)
+    # study.optimize(objective_partial, n_trials=10)  # You can adjust n_trials as needed
+
+    # Get best hyperparameters
+    best_params = study.best_params
+    best_lr = best_params["lr"]
+    best_epochs = best_params["epochs"]
+
+    print("Best learning rate:", best_lr)
+    print("Best number of epochs:", best_epochs)
+
+    # Use best hyperparameters for final training
+    model = Net().to(device)
+    optimizer = optim.Adam(model.parameters(), lr=best_lr)
     scheduler = StepLR(optimizer, step_size=1, gamma=args.gamma)
-    for epoch in range(args.epochs):
+    for epoch in range(best_epochs):
         train(args, model, device, train_loader, optimizer, epoch)
         test(model, device, test_loader, epoch)
         scheduler.step()
