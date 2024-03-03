@@ -136,6 +136,8 @@ def main():
         },
     )
 
+    wandb.run.log_code(__file__ + "/..")
+
     scheduler = StepLR(optimizer, step_size=1, gamma=args.gamma)
     for epoch in range(args.epochs):
         train(args, model, device, train_loader, optimizer, epoch)
