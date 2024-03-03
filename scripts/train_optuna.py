@@ -14,9 +14,19 @@ import os
 
 
 def train(args, model, device, train_loader, optimizer, epoch):
+    """
+    Trains the model for one epoch.
+
+    Args:
+        args (argparse.Namespace): Command-line arguments.
+        model (torch.nn.Module): The model to be trained.
+        device (torch.device): The device to be used for training.
+        train_loader (torch.utils.data.DataLoader): The data loader for training data.
+        optimizer (torch.optim.Optimizer): The optimizer to be used for training.
+        epoch (int): The current epoch number.
+    """
     model.train()
     for batch_idx, (data, target) in enumerate(train_loader):
-
         data, target = data.to(device), target.to(device)
         optimizer.zero_grad()
         output = model(data)
@@ -39,13 +49,21 @@ def train(args, model, device, train_loader, optimizer, epoch):
 
 
 def test(model, device, test_loader, epoch):
+    """
+    Evaluates the model on the test dataset.
+
+    Args:
+        model (torch.nn.Module): The model to be evaluated.
+        device (torch.device): The device to be used for evaluation.
+        test_loader (torch.utils.data.DataLoader): The data loader for test data.
+        epoch (int): The current epoch number.
+    """
     model.eval()
     test_loss = 0
     correct = 0
 
     with torch.no_grad():
         for data, target in test_loader:
-
             data, target = data.to(device), target.to(device)
             output = model(data)
             test_loss += F.nll_loss(output, target, reduction="sum").item()  # sum up batch loss
@@ -63,6 +81,18 @@ def test(model, device, test_loader, epoch):
 
 
 def objective(trial, args, train_loader, test_loader):
+    """
+    Objective function for Optuna optimization.
+
+    Args:
+        trial (optuna.Trial): The current Optuna trial.
+        args (argparse.Namespace): Command-line arguments.
+        train_loader (torch.utils.data.DataLoader): The data loader for training data.
+        test_loader (torch.utils.data.DataLoader): The data loader for test data.
+
+    Returns:
+        float: The accuracy of the model.
+    """
     learning_rate = trial.suggest_float("learning_rate", 1e-5, 1e-1)
     epochs = trial.suggest_int("epochs", 1, 10)
 
@@ -89,6 +119,9 @@ def objective(trial, args, train_loader, test_loader):
 
 
 def main():
+    """
+    Main function for training the model.
+    """
     # Training settings
     parser = argparse.ArgumentParser(description="PyTorch MNIST Example")
     parser.add_argument(

@@ -5,8 +5,26 @@ import torch.nn.functional as F
 
 
 class Net(nn.Module):
-    def __init__(self):
+    """
+    CNN model for image classification.
 
+    Args:
+        None
+
+    Attributes:
+        conv1 (nn.Conv2d): First convolutional layer.
+        conv2 (nn.Conv2d): Second convolutional layer.
+        dropout1 (nn.Dropout): First dropout layer.
+        dropout2 (nn.Dropout): Second dropout layer.
+        fc1 (nn.Linear): First fully connected layer.
+        fc2 (nn.Linear): Second fully connected layer.
+
+    Methods:
+        forward(x): Forward pass of the network.
+
+    """
+
+    def __init__(self):
         super(Net, self).__init__()
         self.conv1 = nn.Conv2d(1, 32, 3, 1)
         self.conv2 = nn.Conv2d(32, 64, 3, 1)
@@ -16,6 +34,16 @@ class Net(nn.Module):
         self.fc2 = nn.Linear(128, 10)
 
     def forward(self, x):
+        """
+        Forward pass of the network.
+
+        Args:
+            x (torch.Tensor): Input tensor.
+
+        Returns:
+            output (torch.Tensor): Output tensor after passing through the network.
+
+        """
         x = self.conv1(x)
         x = F.relu(x)
         x = self.conv2(x)
