@@ -8,6 +8,9 @@ from torchvision import datasets, transforms
 from torch.optim.lr_scheduler import StepLR
 from plr_exercise.models.cnn import Net
 
+import wandb
+
+
 def train(args, model, device, train_loader, optimizer, epoch):
     model.train()
     for batch_idx, (data, target) in enumerate(train_loader):
@@ -28,6 +31,7 @@ def train(args, model, device, train_loader, optimizer, epoch):
                     loss.item(),
                 )
             )
+            wandb.log({"training_loss": loss.item()})
             if args.dry_run:
                 break
 
@@ -48,6 +52,8 @@ def test(model, device, test_loader, epoch):
 
     test_loss /= len(test_loader.dataset)
 
+    wandb.log({"test_loss": test_loss})
+
     print(
         "\nTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n".format(
             test_loss, correct, len(test_loader.dataset), 100.0 * correct / len(test_loader.dataset)
@@ -64,7 +70,7 @@ def main():
     parser.add_argument(
         "--test-batch-size", type=int, default=1000, metavar="N", help="input batch size for testing (default: 1000)"
     )
-    parser.add_argument("--epochs", type=int, default=2, metavar="N", help="number of epochs to train (default: 14)")
+    parser.add_argument("--epochs", type=int, default=10, metavar="N", help="number of epochs to train (default: 14)")
     parser.add_argument("--lr", type=float, default=1.0, metavar="LR", help="learning rate (default: 1.0)")
     parser.add_argument("--gamma", type=float, default=0.7, metavar="M", help="Learning rate step gamma (default: 0.7)")
     parser.add_argument("--no-cuda", action="store_true", default=False, help="disables CUDA training")
@@ -82,6 +88,18 @@ def main():
     use_cuda = not args.no_cuda and torch.cuda.is_available()
 
     torch.manual_seed(args.seed)
+
+    training_loss = 0.0
+    test_loss = 0.0
+    wandb.login()
+    run = wandb.init(
+        project="plr-exercise",
+        config={
+            "training_loss": training_loss,
+            "epochs": test_loss,
+        },
+        settings=wandb.Settings(code_dir=".")
+    )
 
     if use_cuda:
         device = torch.device("cuda")
@@ -109,6 +127,7 @@ def main():
         train(args, model, device, train_loader, optimizer, epoch)
         test(model, device, test_loader, epoch)
         scheduler.step()
+        
 
     if args.save_model:
         torch.save(model.state_dict(), "mnist_cnn.pt")
