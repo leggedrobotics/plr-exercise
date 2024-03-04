@@ -1,1 +1,3 @@
-results/
+results/*
+*.pyc
+plr_exercise.egg-info/*
