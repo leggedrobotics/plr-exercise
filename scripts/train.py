@@ -9,6 +9,7 @@ from plr_exercise.models import Net
 from plr_exercise import PLR_ROOT_DIR
 import wandb
 import os
+import optuna
 
 
 def train(args, model, device, train_loader, optimizer, epoch):
@@ -58,6 +59,7 @@ def test(model, device, test_loader, epoch):
         )
     )
     wandb.log({"test_loss": test_loss, "epoch": epoch})
+    return test_loss
 
 
 def main():
@@ -70,7 +72,7 @@ def main():
         "--test-batch-size", type=int, default=1000, metavar="N", help="input batch size for testing (default: 1000)"
     )
     parser.add_argument("--epochs", type=int, default=2, metavar="N", help="number of epochs to train (default: 14)")
-    parser.add_argument("--lr", type=float, default=1.0, metavar="LR", help="learning rate (default: 1.0)")
+    # parser.add_argument("--lr", type=float, default=1.0, metavar="LR", help="learning rate (default: 1.0)")
     parser.add_argument("--gamma", type=float, default=0.7, metavar="M", help="Learning rate step gamma (default: 0.7)")
     parser.add_argument("--no-cuda", action="store_true", default=False, help="disables CUDA training")
     parser.add_argument("--dry-run", action="store_true", default=False, help="quickly check a single pass")
@@ -111,24 +113,43 @@ def main():
         cuda_kwargs = {"num_workers": 1, "pin_memory": True, "shuffle": True}
         train_kwargs.update(cuda_kwargs)
         test_kwargs.update(cuda_kwargs)
-
     transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))])
     dataset1 = datasets.MNIST("../data", train=True, download=True, transform=transform)
     dataset2 = datasets.MNIST("../data", train=False, transform=transform)
     train_loader = torch.utils.data.DataLoader(dataset1, **train_kwargs)
     test_loader = torch.utils.data.DataLoader(dataset2, **test_kwargs)
 
-    model = Net().to(device)
-    optimizer = optim.Adam(model.parameters(), lr=args.lr)
+    def objective(trial):
+        # Optuna variables
+        lr = trial.suggest_float("lr", 1e-4, 1e-1, log=True)
+        # epochs = trial.suggest_int("epochs", 1, 3)
+        gamma = trial.suggest_float("gamma", 0.5, 0.9)
 
-    scheduler = StepLR(optimizer, step_size=1, gamma=args.gamma)
-    for epoch in range(args.epochs):
-        train(args, model, device, train_loader, optimizer, epoch)
-        test(model, device, test_loader, epoch)
-        scheduler.step()
+        model = Net().to(device)
+        optimizer = optim.Adam(model.parameters(), lr=lr)
+        scheduler = StepLR(optimizer, step_size=1, gamma=gamma)
 
-    if args.save_model:
-        torch.save(model.state_dict(), "mnist_cnn.pt")
+        # Training loop
+        for epoch in range(args.epochs):
+            train(args, model, device, train_loader, optimizer, epoch)
+            test_loss = test(model, device, test_loader, epoch)
+            scheduler.step()
+
+        return test_loss
+
+    study = optuna.create_study(direction="minimize")
+    study.optimize(objective, n_trials=5)
+
+    # Save or print the best hyperparameters
+    print("Best trial:")
+    trial = study.best_trial
+    print(f"  Value: {trial.value}")
+    print("  Params: ")
+    for key, value in trial.params.items():
+        print(f"    {key}: {value}")
+
+    # if args.save_model:
+    #     torch.save(model.state_dict(), "mnist_cnn.pt")
 
     wandb.finish()
 
