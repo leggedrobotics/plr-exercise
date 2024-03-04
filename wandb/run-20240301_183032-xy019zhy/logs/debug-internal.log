@@ -1,0 +1,72 @@
+2024-03-01 18:30:32,229 INFO    StreamThr :10748 [internal.py:wandb_internal():86] W&B internal server running at pid: 10748, started at: 2024-03-01 18:30:32.228342
+2024-03-01 18:30:32,235 DEBUG   HandlerThread:10748 [handler.py:handle_request():146] handle_request: status
+2024-03-01 18:30:32,240 INFO    WriterThread:10748 [datastore.py:open_for_write():87] open: C:\Users\janbe\OneDrive\Dokumente\Schule\ETH\Master\FS24\PLR\plr-exercise\wandb\run-20240301_183032-xy019zhy\run-xy019zhy.wandb
+2024-03-01 18:30:32,241 DEBUG   SenderThread:10748 [sender.py:send():382] send: header
+2024-03-01 18:30:32,472 DEBUG   SenderThread:10748 [sender.py:send():382] send: run
+2024-03-01 18:30:32,952 INFO    SenderThread:10748 [dir_watcher.py:__init__():211] watching files in: C:\Users\janbe\OneDrive\Dokumente\Schule\ETH\Master\FS24\PLR\plr-exercise\wandb\run-20240301_183032-xy019zhy\files
+2024-03-01 18:30:32,952 INFO    SenderThread:10748 [sender.py:_start_run_threads():1136] run started: xy019zhy with start time 1709314232.231696
+2024-03-01 18:30:32,960 DEBUG   HandlerThread:10748 [handler.py:handle_request():146] handle_request: check_version
+2024-03-01 18:30:32,961 DEBUG   SenderThread:10748 [sender.py:send_request():409] send_request: check_version
+2024-03-01 18:30:33,049 DEBUG   HandlerThread:10748 [handler.py:handle_request():146] handle_request: run_start
+2024-03-01 18:30:33,850 DEBUG   HandlerThread:10748 [system_info.py:__init__():27] System info init
+2024-03-01 18:30:33,850 DEBUG   HandlerThread:10748 [system_info.py:__init__():42] System info init done
+2024-03-01 18:30:33,850 INFO    HandlerThread:10748 [system_monitor.py:start():194] Starting system monitor
+2024-03-01 18:30:33,850 INFO    SystemMonitor:10748 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-03-01 18:30:33,850 INFO    HandlerThread:10748 [system_monitor.py:probe():214] Collecting system info
+2024-03-01 18:30:33,855 INFO    SystemMonitor:10748 [interfaces.py:start():190] Started cpu monitoring
+2024-03-01 18:30:33,855 INFO    SystemMonitor:10748 [interfaces.py:start():190] Started disk monitoring
+2024-03-01 18:30:33,856 INFO    SystemMonitor:10748 [interfaces.py:start():190] Started gpu monitoring
+2024-03-01 18:30:33,865 INFO    SystemMonitor:10748 [interfaces.py:start():190] Started memory monitoring
+2024-03-01 18:30:33,880 DEBUG   HandlerThread:10748 [system_info.py:probe():151] Probing system
+2024-03-01 18:30:33,880 INFO    SystemMonitor:10748 [interfaces.py:start():190] Started network monitoring
+2024-03-01 18:30:33,882 DEBUG   HandlerThread:10748 [system_info.py:_probe_git():136] Probing git
+2024-03-01 18:30:33,883 ERROR   gpu       :10748 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 18:30:33,883 ERROR   gpu       :10748 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 18:30:33,975 DEBUG   HandlerThread:10748 [system_info.py:_probe_git():144] Probing git done
+2024-03-01 18:30:33,976 DEBUG   HandlerThread:10748 [system_info.py:probe():199] Probing system done
+2024-03-01 18:30:33,976 DEBUG   HandlerThread:10748 [system_monitor.py:probe():223] {'os': 'Windows-10-10.0.22631-SP0', 'python': '3.11.3', 'heartbeatAt': '2024-03-01T17:30:33.880905', 'startedAt': '2024-03-01T17:30:32.189693', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'c:\\Users\\janbe\\OneDrive\\Dokumente\\Schule\\ETH\\Master\\FS24\\PLR\\plr-exercise\\scripts\\train.py', 'codePathLocal': 'scripts\\train.py', 'codePath': 'scripts\\train.py', 'git': {'remote': 'https://github.com/j4nberner/plr-exercise.git', 'commit': 'cac8de47a4b833a3905e94d23d46667d2b0d88e6'}, 'email': 'j4n.berner@gmail.com', 'root': 'C:/Users/janbe/OneDrive/Dokumente/Schule/ETH/Master/FS24/PLR/plr-exercise', 'host': 'Jan_Laptop', 'username': 'janbe', 'executable': 'C:\\Python311\\python.exe', 'cpu_count': 4, 'cpu_count_logical': 8, 'cpu_freq': {'current': 1609.0, 'min': 0.0, 'max': 2112.0}, 'cpu_freq_per_core': [{'current': 1609.0, 'min': 0.0, 'max': 2112.0}], 'disk': {'/': {'total': 461.32421493530273, 'used': 339.1850929260254}}, 'gpu': 'NVIDIA GeForce MX250', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce MX250', 'memory_total': 2147483648}], 'memory': {'total': 15.839252471923828}}
+2024-03-01 18:30:33,976 INFO    HandlerThread:10748 [system_monitor.py:probe():224] Finished collecting system info
+2024-03-01 18:30:33,976 INFO    HandlerThread:10748 [system_monitor.py:probe():227] Publishing system info
+2024-03-01 18:30:33,977 INFO    HandlerThread:10748 [system_monitor.py:probe():229] Finished publishing system info
+2024-03-01 18:30:33,984 DEBUG   SenderThread:10748 [sender.py:send():382] send: files
+2024-03-01 18:30:33,984 INFO    SenderThread:10748 [sender.py:_save_file():1403] saving file wandb-metadata.json with policy now
+2024-03-01 18:30:33,993 DEBUG   HandlerThread:10748 [handler.py:handle_request():146] handle_request: python_packages
+2024-03-01 18:30:33,994 DEBUG   SenderThread:10748 [sender.py:send_request():409] send_request: python_packages
+2024-03-01 18:30:33,994 DEBUG   HandlerThread:10748 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-01 18:30:33,995 DEBUG   HandlerThread:10748 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-01 18:30:33,995 DEBUG   SenderThread:10748 [sender.py:send_request():409] send_request: stop_status
+2024-03-01 18:30:34,237 DEBUG   HandlerThread:10748 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 18:30:34,261 DEBUG   SenderThread:10748 [sender.py:send():382] send: telemetry
+2024-03-01 18:30:34,261 DEBUG   SenderThread:10748 [sender.py:send():382] send: history
+2024-03-01 18:30:34,262 DEBUG   SenderThread:10748 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 18:30:34,263 INFO    SenderThread:10748 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 18:30:34,606 INFO    wandb-upload_0:10748 [upload_job.py:push():131] Uploaded file C:\Users\janbe\AppData\Local\Temp\tmp0irjy580wandb\kttf5j33-wandb-metadata.json
+2024-03-01 18:30:34,974 INFO    Thread-16 :10748 [dir_watcher.py:_on_file_created():271] file/dir created: C:\Users\janbe\OneDrive\Dokumente\Schule\ETH\Master\FS24\PLR\plr-exercise\wandb\run-20240301_183032-xy019zhy\files\wandb-metadata.json
+2024-03-01 18:30:34,975 INFO    Thread-16 :10748 [dir_watcher.py:_on_file_created():271] file/dir created: C:\Users\janbe\OneDrive\Dokumente\Schule\ETH\Master\FS24\PLR\plr-exercise\wandb\run-20240301_183032-xy019zhy\files\wandb-summary.json
+2024-03-01 18:30:34,975 INFO    Thread-16 :10748 [dir_watcher.py:_on_file_created():271] file/dir created: C:\Users\janbe\OneDrive\Dokumente\Schule\ETH\Master\FS24\PLR\plr-exercise\wandb\run-20240301_183032-xy019zhy\files\output.log
+2024-03-01 18:30:34,975 INFO    Thread-16 :10748 [dir_watcher.py:_on_file_created():271] file/dir created: C:\Users\janbe\OneDrive\Dokumente\Schule\ETH\Master\FS24\PLR\plr-exercise\wandb\run-20240301_183032-xy019zhy\files\requirements.txt
+2024-03-01 18:30:35,060 DEBUG   HandlerThread:10748 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 18:30:35,060 DEBUG   SenderThread:10748 [sender.py:send():382] send: history
+2024-03-01 18:30:35,061 DEBUG   SenderThread:10748 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 18:30:35,063 INFO    SenderThread:10748 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 18:30:35,833 DEBUG   HandlerThread:10748 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 18:30:35,834 DEBUG   SenderThread:10748 [sender.py:send():382] send: history
+2024-03-01 18:30:35,834 DEBUG   SenderThread:10748 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 18:30:35,835 INFO    SenderThread:10748 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 18:30:35,908 ERROR   gpu       :10748 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 18:30:35,908 ERROR   gpu       :10748 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 18:30:35,980 INFO    Thread-16 :10748 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\janbe\OneDrive\Dokumente\Schule\ETH\Master\FS24\PLR\plr-exercise\wandb\run-20240301_183032-xy019zhy\files\wandb-summary.json
+2024-03-01 18:30:36,612 DEBUG   HandlerThread:10748 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 18:30:36,613 DEBUG   SenderThread:10748 [sender.py:send():382] send: history
+2024-03-01 18:30:36,613 DEBUG   SenderThread:10748 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 18:30:36,614 INFO    SenderThread:10748 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 18:30:36,993 INFO    Thread-16 :10748 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\janbe\OneDrive\Dokumente\Schule\ETH\Master\FS24\PLR\plr-exercise\wandb\run-20240301_183032-xy019zhy\files\wandb-summary.json
+2024-03-01 18:30:36,993 INFO    Thread-16 :10748 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\janbe\OneDrive\Dokumente\Schule\ETH\Master\FS24\PLR\plr-exercise\wandb\run-20240301_183032-xy019zhy\files\output.log
+2024-03-01 18:30:37,623 DEBUG   HandlerThread:10748 [handler.py:handle_request():146] handle_request: partial_history
+2024-03-01 18:30:37,624 DEBUG   SenderThread:10748 [sender.py:send():382] send: history
+2024-03-01 18:30:37,624 DEBUG   SenderThread:10748 [sender.py:send_request():409] send_request: summary_record
+2024-03-01 18:30:37,626 DEBUG   HandlerThread:10748 [handler.py:handle_request():146] handle_request: status_report
+2024-03-01 18:30:37,627 INFO    SenderThread:10748 [sender.py:_save_file():1403] saving file wandb-summary.json with policy end
+2024-03-01 18:30:37,937 ERROR   gpu       :10748 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 18:30:37,937 ERROR   gpu       :10748 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2024-03-01 18:30:37,997 INFO    Thread-16 :10748 [dir_watcher.py:_on_file_modified():288] file/dir modified: C:\Users\janbe\OneDrive\Dokumente\Schule\ETH\Master\FS24\PLR\plr-exercise\wandb\run-20240301_183032-xy019zhy\files\wandb-summary.json

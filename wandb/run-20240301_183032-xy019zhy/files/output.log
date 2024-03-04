@@ -1,0 +1,4 @@
+Train Epoch: 0 [0/60000 (0%)]	Loss: 2.305400
+Train Epoch: 0 [640/60000 (1%)]	Loss: 3.999058
+Train Epoch: 0 [1280/60000 (2%)]	Loss: 2.429991
+Train Epoch: 0 [1920/60000 (3%)]	Loss: 2.488830

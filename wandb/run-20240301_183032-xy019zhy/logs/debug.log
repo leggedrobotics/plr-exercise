@@ -1,0 +1,26 @@
+2024-03-01 18:30:32,214 INFO    MainThread:30376 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-03-01 18:30:32,215 INFO    MainThread:30376 [wandb_setup.py:_flush():76] Configure stats pid to 30376
+2024-03-01 18:30:32,215 INFO    MainThread:30376 [wandb_setup.py:_flush():76] Loading settings from C:\Users\janbe\.config\wandb\settings
+2024-03-01 18:30:32,215 INFO    MainThread:30376 [wandb_setup.py:_flush():76] Loading settings from C:\Users\janbe\OneDrive\Dokumente\Schule\ETH\Master\FS24\PLR\plr-exercise\wandb\settings
+2024-03-01 18:30:32,216 INFO    MainThread:30376 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-03-01 18:30:32,216 INFO    MainThread:30376 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-03-01 18:30:32,216 INFO    MainThread:30376 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'scripts\\train.py', 'program_abspath': 'c:\\Users\\janbe\\OneDrive\\Dokumente\\Schule\\ETH\\Master\\FS24\\PLR\\plr-exercise\\scripts\\train.py', 'program': 'c:\\Users\\janbe\\OneDrive\\Dokumente\\Schule\\ETH\\Master\\FS24\\PLR\\plr-exercise\\scripts\\train.py'}
+2024-03-01 18:30:32,218 INFO    MainThread:30376 [wandb_init.py:_log_setup():526] Logging user logs to C:\Users\janbe\OneDrive\Dokumente\Schule\ETH\Master\FS24\PLR\plr-exercise\wandb\run-20240301_183032-xy019zhy\logs\debug.log
+2024-03-01 18:30:32,219 INFO    MainThread:30376 [wandb_init.py:_log_setup():527] Logging internal logs to C:\Users\janbe\OneDrive\Dokumente\Schule\ETH\Master\FS24\PLR\plr-exercise\wandb\run-20240301_183032-xy019zhy\logs\debug-internal.log
+2024-03-01 18:30:32,219 INFO    MainThread:30376 [wandb_init.py:init():566] calling init triggers
+2024-03-01 18:30:32,219 INFO    MainThread:30376 [wandb_init.py:init():573] wandb.init called with sweep_config: {}
+config: {'learning_rate': 1.0, 'epochs': 1}
+2024-03-01 18:30:32,220 INFO    MainThread:30376 [wandb_init.py:init():616] starting backend
+2024-03-01 18:30:32,220 INFO    MainThread:30376 [wandb_init.py:init():620] setting up manager
+2024-03-01 18:30:32,225 INFO    MainThread:30376 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=spawn, using: spawn
+2024-03-01 18:30:32,231 INFO    MainThread:30376 [wandb_init.py:init():628] backend started and connected
+2024-03-01 18:30:32,239 INFO    MainThread:30376 [wandb_init.py:init():720] updated telemetry
+2024-03-01 18:30:32,470 INFO    MainThread:30376 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2024-03-01 18:30:32,960 INFO    MainThread:30376 [wandb_run.py:_on_init():2262] communicating current version
+2024-03-01 18:30:33,043 INFO    MainThread:30376 [wandb_run.py:_on_init():2271] got version response 
+2024-03-01 18:30:33,043 INFO    MainThread:30376 [wandb_init.py:init():804] starting run threads in backend
+2024-03-01 18:30:33,995 INFO    MainThread:30376 [wandb_run.py:_console_start():2241] atexit reg
+2024-03-01 18:30:33,995 INFO    MainThread:30376 [wandb_run.py:_redirect():2096] redirect: wrap_raw
+2024-03-01 18:30:33,995 INFO    MainThread:30376 [wandb_run.py:_redirect():2161] Wrapping output streams.
+2024-03-01 18:30:33,995 INFO    MainThread:30376 [wandb_run.py:_redirect():2186] Redirects installed.
+2024-03-01 18:30:33,996 INFO    MainThread:30376 [wandb_init.py:init():847] run started, returning control to user process
