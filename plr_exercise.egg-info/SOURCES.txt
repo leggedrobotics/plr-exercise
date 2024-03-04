@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+plr_exercise/__init__.py
+plr_exercise.egg-info/PKG-INFO
+plr_exercise.egg-info/SOURCES.txt
+plr_exercise.egg-info/dependency_links.txt
+plr_exercise.egg-info/requires.txt
+plr_exercise.egg-info/top_level.txt
+plr_exercise/models/__init__.py
+plr_exercise/models/cnn.py
