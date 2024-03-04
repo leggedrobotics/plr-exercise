@@ -9,6 +9,9 @@ from torch.optim.lr_scheduler import StepLR
 
 from plr_exercise.model.cnn import Net
 
+import wandb
+
+wandb.login()
 
 # class Net(nn.Module):
 #     def __init__(self):
@@ -47,6 +50,7 @@ def train(args, model, device, train_loader, optimizer, epoch):
         loss = F.nll_loss(output, target)
         loss.backward()
         optimizer.step()
+        wandb.log({"train_loss": loss.item()})
         if batch_idx % args.log_interval == 0:
             print(
                 "Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}".format(
@@ -82,6 +86,7 @@ def test(model, device, test_loader, epoch):
             test_loss, correct, len(test_loader.dataset), 100.0 * correct / len(test_loader.dataset)
         )
     )
+    wandb.log({"accuracy": 100.0 * correct / len(test_loader.dataset), "test_loss": test_loss})
 
 
 def main():
@@ -134,6 +139,11 @@ def main():
     optimizer = optim.Adam(model.parameters(), lr=args.lr)
 
     scheduler = StepLR(optimizer, step_size=1, gamma=args.gamma)
+    
+    wandb.init(project="plr_exercise",
+           config={"learning_rate": args.lr, 
+                   "epochs": args.epochs})
+    
     for epoch in range(args.epochs):
         train(args, model, device, train_loader, optimizer, epoch)
         test(model, device, test_loader, epoch)
