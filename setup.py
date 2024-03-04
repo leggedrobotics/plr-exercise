@@ -7,7 +7,7 @@ INSTALL_REQUIRES = [
 ]
 setup(
     name="plr_exercise",
-    version="1.0.0",
+    version="1.0.1",
     author="Jonas Frey",
     author_email="jonfrey@ethz.ch",
     packages=find_packages(),
