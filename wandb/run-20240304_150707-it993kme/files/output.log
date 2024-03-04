@@ -1,0 +1,2 @@
+usage: train.py [-h] [--batch-size N] [--test-batch-size N] [--epochs N] [--lr LR] [--gamma M] [--no-cuda] [--dry-run] [--seed S] [--log-interval N] [--save-model]
+train.py: error: unrecognized arguments: True
