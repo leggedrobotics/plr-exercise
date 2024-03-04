@@ -1,0 +1,133 @@
+{
+    "os": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+    "python": "3.10.12",
+    "heartbeatAt": "2024-03-04T18:37:46.302915",
+    "startedAt": "2024-03-04T18:37:44.637704",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--lr",
+        "0.025",
+        "--epochs",
+        "5"
+    ],
+    "state": "running",
+    "program": "/home/sgeisser/git/plr-exercise/scripts/train.py",
+    "codePathLocal": "scripts/train.py",
+    "codePath": "scripts/train.py",
+    "git": {
+        "remote": "git@github.com:sgeisser1/plr-exercise.git",
+        "commit": "0834645df81842c103b48670e930ccdd8e106dc5"
+    },
+    "email": "sgeisser@student.ethz.ch",
+    "root": "/home/sgeisser/git/plr-exercise",
+    "host": "DESKTOP-HOME",
+    "username": "sgeisser",
+    "executable": "/usr/bin/python3",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 3593.2430000000004,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3593.243,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3593.243,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3593.243,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3593.243,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3593.243,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3593.243,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3593.243,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3593.243,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3593.243,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3593.243,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3593.243,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3593.243,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3593.243,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3593.243,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3593.243,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3593.243,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 1006.853931427002,
+            "used": 14.972652435302734
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 3060",
+            "memory_total": 12884901888
+        }
+    ],
+    "memory": {
+        "total": 31.316707611083984
+    }
+}

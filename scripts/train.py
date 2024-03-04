@@ -7,10 +7,25 @@ import torch.optim as optim
 from torchvision import datasets, transforms
 from torch.optim.lr_scheduler import StepLR
 from plr_exercise.models.cnn import Net
+import wandb
 
+wandb.login()
 
 def train(args, model, device, train_loader, optimizer, epoch):
     model.train()
+
+    wandb.login()
+
+    run = wandb.init(
+        # Set the project where this run will be logged
+        project="plr_exercise",
+        # Track hyperparameters and run metadata
+        config={
+            "learning_rate": args.lr,
+            "epochs": args.epochs,
+        },
+    )
+
     for batch_idx, (data, target) in enumerate(train_loader):
 
         data, target = data.to(device), target.to(device)
@@ -19,6 +34,7 @@ def train(args, model, device, train_loader, optimizer, epoch):
         loss = F.nll_loss(output, target)
         loss.backward()
         optimizer.step()
+        wandb.log({"train_loss": loss})
         if batch_idx % args.log_interval == 0:
             print(
                 "Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}".format(
@@ -54,6 +70,7 @@ def test(model, device, test_loader, epoch):
             test_loss, correct, len(test_loader.dataset), 100.0 * correct / len(test_loader.dataset)
         )
     )
+    wandb.log({"test_loss": test_loss, "test_accuracy": 100.0 * correct / len(test_loader.dataset)})
 
 
 def main():
