@@ -14,8 +14,6 @@ wandb.login()
 def train(args, model, device, train_loader, optimizer, epoch):
     model.train()
 
-    wandb.login()
-
     run = wandb.init(
         # Set the project where this run will be logged
         project="plr_exercise",
@@ -25,6 +23,11 @@ def train(args, model, device, train_loader, optimizer, epoch):
             "epochs": args.epochs,
         },
     )
+    # Save the code to W&B
+    code_artifact = wandb.Artifact(name='code_snapshot', type='code')
+    code_artifact.add_file('scripts/train.py')
+    code_artifact.add_file('plr_exercise/models/cnn.py')
+    run.log_artifact(code_artifact)
 
     for batch_idx, (data, target) in enumerate(train_loader):
 

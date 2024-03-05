@@ -1,0 +1,61 @@
+2024-03-05 07:47:05,475 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-03-05 07:47:05,476 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Configure stats pid to 42866
+2024-03-05 07:47:05,476 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Loading settings from /home/sgeisser/.config/wandb/settings
+2024-03-05 07:47:05,476 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Loading settings from /home/sgeisser/git/plr-exercise/wandb/settings
+2024-03-05 07:47:05,476 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-03-05 07:47:05,476 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'scripts/train.py', 'program_abspath': '/home/sgeisser/git/plr-exercise/scripts/train.py', 'program': '/home/sgeisser/git/plr-exercise/scripts/train.py'}
+2024-03-05 07:47:05,476 INFO    MainThread:42866 [wandb_init.py:_log_setup():526] Logging user logs to /home/sgeisser/git/plr-exercise/wandb/run-20240305_074705-l8n4st89/logs/debug.log
+2024-03-05 07:47:05,476 INFO    MainThread:42866 [wandb_init.py:_log_setup():527] Logging internal logs to /home/sgeisser/git/plr-exercise/wandb/run-20240305_074705-l8n4st89/logs/debug-internal.log
+2024-03-05 07:47:05,476 INFO    MainThread:42866 [wandb_init.py:init():566] calling init triggers
+2024-03-05 07:47:05,476 INFO    MainThread:42866 [wandb_init.py:init():573] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.005, 'epochs': 6}
+2024-03-05 07:47:05,476 INFO    MainThread:42866 [wandb_init.py:init():611] wandb.init() called when a run is still active
+2024-03-05 07:47:16,234 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-03-05 07:47:16,234 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Configure stats pid to 42866
+2024-03-05 07:47:16,234 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Loading settings from /home/sgeisser/.config/wandb/settings
+2024-03-05 07:47:16,234 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Loading settings from /home/sgeisser/git/plr-exercise/wandb/settings
+2024-03-05 07:47:16,234 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-03-05 07:47:16,234 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'scripts/train.py', 'program_abspath': '/home/sgeisser/git/plr-exercise/scripts/train.py', 'program': '/home/sgeisser/git/plr-exercise/scripts/train.py'}
+2024-03-05 07:47:16,234 INFO    MainThread:42866 [wandb_init.py:_log_setup():526] Logging user logs to /home/sgeisser/git/plr-exercise/wandb/run-20240305_074716-dw6anvl1/logs/debug.log
+2024-03-05 07:47:16,234 INFO    MainThread:42866 [wandb_init.py:_log_setup():527] Logging internal logs to /home/sgeisser/git/plr-exercise/wandb/run-20240305_074716-dw6anvl1/logs/debug-internal.log
+2024-03-05 07:47:16,234 INFO    MainThread:42866 [wandb_init.py:init():566] calling init triggers
+2024-03-05 07:47:16,235 INFO    MainThread:42866 [wandb_init.py:init():573] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.005, 'epochs': 6}
+2024-03-05 07:47:16,235 INFO    MainThread:42866 [wandb_init.py:init():611] wandb.init() called when a run is still active
+2024-03-05 07:47:26,787 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-03-05 07:47:26,787 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Configure stats pid to 42866
+2024-03-05 07:47:26,787 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Loading settings from /home/sgeisser/.config/wandb/settings
+2024-03-05 07:47:26,787 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Loading settings from /home/sgeisser/git/plr-exercise/wandb/settings
+2024-03-05 07:47:26,787 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-03-05 07:47:26,787 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'scripts/train.py', 'program_abspath': '/home/sgeisser/git/plr-exercise/scripts/train.py', 'program': '/home/sgeisser/git/plr-exercise/scripts/train.py'}
+2024-03-05 07:47:26,787 INFO    MainThread:42866 [wandb_init.py:_log_setup():526] Logging user logs to /home/sgeisser/git/plr-exercise/wandb/run-20240305_074726-marghxzz/logs/debug.log
+2024-03-05 07:47:26,787 INFO    MainThread:42866 [wandb_init.py:_log_setup():527] Logging internal logs to /home/sgeisser/git/plr-exercise/wandb/run-20240305_074726-marghxzz/logs/debug-internal.log
+2024-03-05 07:47:26,787 INFO    MainThread:42866 [wandb_init.py:init():566] calling init triggers
+2024-03-05 07:47:26,787 INFO    MainThread:42866 [wandb_init.py:init():573] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.005, 'epochs': 6}
+2024-03-05 07:47:26,787 INFO    MainThread:42866 [wandb_init.py:init():611] wandb.init() called when a run is still active
+2024-03-05 07:47:37,340 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-03-05 07:47:37,340 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Configure stats pid to 42866
+2024-03-05 07:47:37,340 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Loading settings from /home/sgeisser/.config/wandb/settings
+2024-03-05 07:47:37,340 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Loading settings from /home/sgeisser/git/plr-exercise/wandb/settings
+2024-03-05 07:47:37,340 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-03-05 07:47:37,340 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'scripts/train.py', 'program_abspath': '/home/sgeisser/git/plr-exercise/scripts/train.py', 'program': '/home/sgeisser/git/plr-exercise/scripts/train.py'}
+2024-03-05 07:47:37,340 INFO    MainThread:42866 [wandb_init.py:_log_setup():526] Logging user logs to /home/sgeisser/git/plr-exercise/wandb/run-20240305_074737-7mx1flm4/logs/debug.log
+2024-03-05 07:47:37,340 INFO    MainThread:42866 [wandb_init.py:_log_setup():527] Logging internal logs to /home/sgeisser/git/plr-exercise/wandb/run-20240305_074737-7mx1flm4/logs/debug-internal.log
+2024-03-05 07:47:37,340 INFO    MainThread:42866 [wandb_init.py:init():566] calling init triggers
+2024-03-05 07:47:37,340 INFO    MainThread:42866 [wandb_init.py:init():573] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.005, 'epochs': 6}
+2024-03-05 07:47:37,340 INFO    MainThread:42866 [wandb_init.py:init():611] wandb.init() called when a run is still active
+2024-03-05 07:47:47,666 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-03-05 07:47:47,666 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Configure stats pid to 42866
+2024-03-05 07:47:47,666 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Loading settings from /home/sgeisser/.config/wandb/settings
+2024-03-05 07:47:47,666 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Loading settings from /home/sgeisser/git/plr-exercise/wandb/settings
+2024-03-05 07:47:47,666 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-03-05 07:47:47,666 INFO    MainThread:42866 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'scripts/train.py', 'program_abspath': '/home/sgeisser/git/plr-exercise/scripts/train.py', 'program': '/home/sgeisser/git/plr-exercise/scripts/train.py'}
+2024-03-05 07:47:47,666 INFO    MainThread:42866 [wandb_init.py:_log_setup():526] Logging user logs to /home/sgeisser/git/plr-exercise/wandb/run-20240305_074747-o2lhs7e4/logs/debug.log
+2024-03-05 07:47:47,666 INFO    MainThread:42866 [wandb_init.py:_log_setup():527] Logging internal logs to /home/sgeisser/git/plr-exercise/wandb/run-20240305_074747-o2lhs7e4/logs/debug-internal.log
+2024-03-05 07:47:47,666 INFO    MainThread:42866 [wandb_init.py:init():566] calling init triggers
+2024-03-05 07:47:47,666 INFO    MainThread:42866 [wandb_init.py:init():573] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.005, 'epochs': 6}
+2024-03-05 07:47:47,667 INFO    MainThread:42866 [wandb_init.py:init():611] wandb.init() called when a run is still active
+2024-03-05 07:48:03,006 WARNING MsgRouterThr:42866 [router.py:message_loop():77] message_loop has been closed
