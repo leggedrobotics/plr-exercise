@@ -1,0 +1,80 @@
+{
+    "os": "Linux-5.15.133.1-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+    "python": "3.10.12",
+    "heartbeatAt": "2024-03-05T10:12:34.380970",
+    "startedAt": "2024-03-05T10:12:33.665679",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/max/Documents/plr-exercise/scripts/train.py",
+    "codePathLocal": "scripts/train.py",
+    "codePath": "scripts/train.py",
+    "git": {
+        "remote": "git@github.com:Maexerich/plr-exercise.git",
+        "commit": "6473356cf74cfa509b7a69f65fe248e3d9d085a2"
+    },
+    "email": "max.greiner.ch@gmail.com",
+    "root": "/home/max/Documents/plr-exercise",
+    "host": "QS",
+    "username": "max",
+    "executable": "/home/max/venv/plr_test/bin/python3.10",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 2995.2099999999996,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2995.21,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2995.21,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2995.21,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2995.21,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2995.21,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2995.21,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2995.21,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2995.21,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 1006.853931427002,
+            "used": 44.9488639831543
+        }
+    },
+    "memory": {
+        "total": 7.681621551513672
+    }
+}

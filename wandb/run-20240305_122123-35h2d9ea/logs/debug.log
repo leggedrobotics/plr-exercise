@@ -1,0 +1,32 @@
+2024-03-05 12:21:23,475 INFO    MainThread:90941 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-03-05 12:21:23,475 INFO    MainThread:90941 [wandb_setup.py:_flush():76] Configure stats pid to 90941
+2024-03-05 12:21:23,475 INFO    MainThread:90941 [wandb_setup.py:_flush():76] Loading settings from /home/max/.config/wandb/settings
+2024-03-05 12:21:23,475 INFO    MainThread:90941 [wandb_setup.py:_flush():76] Loading settings from /home/max/Documents/plr-exercise/wandb/settings
+2024-03-05 12:21:23,476 INFO    MainThread:90941 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-03-05 12:21:23,476 INFO    MainThread:90941 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'scripts/train.py', 'program_abspath': '/home/max/Documents/plr-exercise/scripts/train.py', 'program': '/home/max/Documents/plr-exercise/scripts/train.py'}
+2024-03-05 12:21:23,476 INFO    MainThread:90941 [wandb_init.py:_log_setup():526] Logging user logs to /home/max/Documents/plr-exercise/wandb/run-20240305_122123-35h2d9ea/logs/debug.log
+2024-03-05 12:21:23,476 INFO    MainThread:90941 [wandb_init.py:_log_setup():527] Logging internal logs to /home/max/Documents/plr-exercise/wandb/run-20240305_122123-35h2d9ea/logs/debug-internal.log
+2024-03-05 12:21:23,476 INFO    MainThread:90941 [wandb_init.py:init():566] calling init triggers
+2024-03-05 12:21:23,476 INFO    MainThread:90941 [wandb_init.py:init():573] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.07590056527511244, 'epochs': 3, 'gamma': 0.8719149876700121}
+2024-03-05 12:21:23,476 INFO    MainThread:90941 [wandb_init.py:init():616] starting backend
+2024-03-05 12:21:23,476 INFO    MainThread:90941 [wandb_init.py:init():620] setting up manager
+2024-03-05 12:21:23,477 INFO    MainThread:90941 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-03-05 12:21:23,479 INFO    MainThread:90941 [wandb_init.py:init():628] backend started and connected
+2024-03-05 12:21:23,482 INFO    MainThread:90941 [wandb_init.py:init():720] updated telemetry
+2024-03-05 12:21:23,490 INFO    MainThread:90941 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2024-03-05 12:21:56,664 INFO    MainThread:90941 [wandb_run.py:_on_init():2262] communicating current version
+2024-03-05 12:21:57,205 INFO    MainThread:90941 [wandb_run.py:_on_init():2271] got version response 
+2024-03-05 12:21:57,205 INFO    MainThread:90941 [wandb_init.py:init():804] starting run threads in backend
+2024-03-05 12:21:57,328 INFO    MainThread:90941 [wandb_run.py:_console_start():2241] atexit reg
+2024-03-05 12:21:57,329 INFO    MainThread:90941 [wandb_run.py:_redirect():2096] redirect: wrap_raw
+2024-03-05 12:21:57,329 INFO    MainThread:90941 [wandb_run.py:_redirect():2161] Wrapping output streams.
+2024-03-05 12:21:57,329 INFO    MainThread:90941 [wandb_run.py:_redirect():2186] Redirects installed.
+2024-03-05 12:21:57,331 INFO    MainThread:90941 [wandb_init.py:init():847] run started, returning control to user process
+2024-03-05 12:26:26,871 INFO    MainThread:90941 [wandb_run.py:_finish():1970] finishing run bluefirefly/plr_exercise/35h2d9ea
+2024-03-05 12:26:26,871 INFO    MainThread:90941 [wandb_run.py:_atexit_cleanup():2210] got exitcode: 0
+2024-03-05 12:26:26,872 INFO    MainThread:90941 [wandb_run.py:_restore():2193] restore
+2024-03-05 12:26:26,872 INFO    MainThread:90941 [wandb_run.py:_restore():2199] restore done
+2024-03-05 12:26:35,728 INFO    MainThread:90941 [wandb_run.py:_footer_history_summary_info():3866] rendering history
+2024-03-05 12:26:35,729 INFO    MainThread:90941 [wandb_run.py:_footer_history_summary_info():3898] rendering summary
+2024-03-05 12:26:35,738 INFO    MainThread:90941 [wandb_run.py:_footer_sync_info():3825] logging synced files

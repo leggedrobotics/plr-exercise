@@ -10,35 +10,12 @@ from torch.optim.lr_scheduler import StepLR
 from plr_exercise.model.cnn import Net
 
 import wandb
+import optuna
+from optuna.trial import TrialState
 
-wandb.login()
+wandb.login() 
 
-# class Net(nn.Module):
-#     def __init__(self):
-
-#         super(Net, self).__init__()
-#         self.conv1 = nn.Conv2d(1, 32, 3, 1)
-#         self.conv2 = nn.Conv2d(32, 64, 3, 1)
-#         self.dropout1 = nn.Dropout(0.25)
-#         self.dropout2 = nn.Dropout(0.5)
-#         self.fc1 = nn.Linear(9216, 128)
-#         self.fc2 = nn.Linear(128, 10)
-
-#     def forward(self, x):
-#         x = self.conv1(x)
-#         x = F.relu(x)
-#         x = self.conv2(x)
-#         x = F.relu(x)
-#         x = F.max_pool2d(x, 2)
-#         x = self.dropout1(x)
-#         x = torch.flatten(x, 1)
-#         x = self.fc1(x)
-#         x = F.relu(x)
-#         x = self.dropout2(x)
-#         x = self.fc2(x)
-#         output = F.log_softmax(x, dim=1)
-#         return output
-
+DEVICE = None
 
 def train(args, model, device, train_loader, optimizer, epoch):
     model.train()
@@ -65,7 +42,7 @@ def train(args, model, device, train_loader, optimizer, epoch):
                 break
 
 
-def test(model, device, test_loader, epoch):
+def test(model, device, test_loader, epoch, trial):
     model.eval()
     test_loss = 0
     correct = 0
@@ -87,6 +64,25 @@ def test(model, device, test_loader, epoch):
         )
     )
     wandb.log({"accuracy": 100.0 * correct / len(test_loader.dataset), "test_loss": test_loss})
+    trial.report(100.0 * correct / len(test_loader.dataset), epoch)
+    return 100.0 * correct / len(test_loader.dataset)
+
+# def objective(trial):
+#     lr = trial.suggest_float("lr", 1e-6, 1e-1, log=True)
+#     gamma = trial.suggest_float("gamma", 0.1, 0.9)
+#     epochs = trial.suggest_int("epochs", 1, 10)
+
+
+#     model = Net().to(DEVICE)
+#     optimizer = optim.Adam(model.parameters(), lr=lr)
+
+#     scheduler = StepLR(optimizer, step_size=1, gamma=gamma)
+
+#     for epoch in range(epochs):
+#         train(args, model, DEVICE, train_loader, optimizer, epoch)
+#         accuracy = test(model, DEVICE, test_loader, epoch, trial)
+#         scheduler.step()
+
 
 
 def main():
@@ -121,6 +117,7 @@ def main():
         device = torch.device("cuda")
     else:
         device = torch.device("cpu")
+    DEVICE = device
 
     train_kwargs = {"batch_size": args.batch_size}
     test_kwargs = {"batch_size": args.test_batch_size}
@@ -135,22 +132,72 @@ def main():
     train_loader = torch.utils.data.DataLoader(dataset1, **train_kwargs)
     test_loader = torch.utils.data.DataLoader(dataset2, **test_kwargs)
 
-    model = Net().to(device)
-    optimizer = optim.Adam(model.parameters(), lr=args.lr)
+    # model = Net().to(device)
+    # optimizer = optim.Adam(model.parameters(), lr=args.lr)
 
-    scheduler = StepLR(optimizer, step_size=1, gamma=args.gamma)
+    # scheduler = StepLR(optimizer, step_size=1, gamma=args.gamma)
     
-    wandb.init(project="plr_exercise",
-           config={"learning_rate": args.lr, 
-                   "epochs": args.epochs})
-    
-    for epoch in range(args.epochs):
-        train(args, model, device, train_loader, optimizer, epoch)
-        test(model, device, test_loader, epoch)
-        scheduler.step()
+    def objective(trial):
+        lr = trial.suggest_float("lr", 1e-6, 1e-1, log=True)
+        gamma = trial.suggest_float("gamma", 0.1, 0.9)
+        epochs = trial.suggest_int("epochs", 1, 3)
 
-    if args.save_model:
-        torch.save(model.state_dict(), "mnist_cnn.pt")
+        wandb.init(project="plr_exercise",
+                   config={"learning_rate": lr,
+                           "epochs": epochs,
+                           "gamma": gamma},
+                    name=f'Trial-{trial.number}',)
+
+
+        model = Net().to(DEVICE)
+        optimizer = optim.Adam(model.parameters(), lr=lr)
+
+        scheduler = StepLR(optimizer, step_size=1, gamma=gamma)
+
+        for epoch in range(epochs):
+            train(args, model, DEVICE, train_loader, optimizer, epoch)
+            accuracy = test(model, DEVICE, test_loader, epoch, trial)
+            scheduler.step()
+        trial.report(accuracy, epoch)
+
+        # Handle pruning based on the intermediate value.
+        if trial.should_prune():
+            raise optuna.exceptions.TrialPruned()
+
+        if args.save_model:
+            torch.save(model.state_dict(), "mnist_cnn.pt")
+
+        wandb.finish()
+            
+        return accuracy
+    
+    study = optuna.create_study(direction="maximize", study_name="experiment3", storage="sqlite:///experiment3.db")
+    study.optimize(objective, n_trials=5)
+
+    pruned_trials = study.get_trials(deepcopy=False, states=[TrialState.PRUNED])
+    complete_trials = study.get_trials(deepcopy=False, states=[TrialState.COMPLETE])
+
+    print("Study statistics: ")
+    print("  Number of finished trials: ", len(study.trials))
+    print("  Number of pruned trials: ", len(pruned_trials))
+    print("  Number of complete trials: ", len(complete_trials))
+
+    print("Best trial:")
+    trial = study.best_trial
+
+    print("  Value: ", trial.value)
+
+    print("  Params: ")
+    for key, value in trial.params.items():
+        print("    {}: {}".format(key, value))
+    
+    # for epoch in range(args.epochs):
+    #     train(args, model, device, train_loader, optimizer, epoch)
+    #     accuracy = test(model, device, test_loader, epoch)
+    #     scheduler.step()
+
+    # if args.save_model:
+    #     torch.save(model.state_dict(), "mnist_cnn.pt")
 
 
 if __name__ == "__main__":
