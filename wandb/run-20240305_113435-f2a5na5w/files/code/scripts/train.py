@@ -238,7 +238,7 @@ def main():
     study = optuna.create_study(direction="maximize")
     study.optimize(objective, n_trials=5, timeout=600)
 
-    trial = study.best_trial
+    trial = study.best_trial()
     print("Best trial: ", trial.params)
 
 

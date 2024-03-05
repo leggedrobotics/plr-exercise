@@ -2,18 +2,18 @@ name: Formatting
 on: [push, pull_request]
 jobs:
   check-formatting:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: Black Code Formatter
+      - name: Checkout code
+        uses: actions/checkout@v1
+      - name: Black Code Formatter Check
         uses: lgeiger/black-action@master
         with:
           args: "--line-length 120 . --check"
-          name: black-action
 
   auto-formatting:
     name: runner / black
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
       - name: Check files using the black formatter

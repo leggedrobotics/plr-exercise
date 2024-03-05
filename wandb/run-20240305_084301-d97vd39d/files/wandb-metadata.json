@@ -1,0 +1,53 @@
+{
+    "os": "Windows-10-10.0.22631-SP0",
+    "python": "3.11.3",
+    "heartbeatAt": "2024-03-05T07:43:03.740634",
+    "startedAt": "2024-03-05T07:43:01.449785",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "./scripts/train.py",
+    "codePathLocal": "scripts\\train.py",
+    "codePath": "scripts\\train.py",
+    "git": {
+        "remote": "https://github.com/j4nberner/plr-exercise.git",
+        "commit": "4912b83a0aa956b5c6e31117b088752e7ff2718e"
+    },
+    "email": "j4n.berner@gmail.com",
+    "root": "C:/Users/janbe/OneDrive/Dokumente/Schule/ETH/Master/FS24/PLR/plr-exercise",
+    "host": "Jan_Laptop",
+    "username": "janbe",
+    "executable": "c:\\Python311\\python.exe",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 1508.0,
+        "min": 0.0,
+        "max": 2112.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1508.0,
+            "min": 0.0,
+            "max": 2112.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 461.32421493530273,
+            "used": 358.9217872619629
+        }
+    },
+    "gpu": "NVIDIA GeForce MX250",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce MX250",
+            "memory_total": 2147483648
+        }
+    ],
+    "memory": {
+        "total": 15.839252471923828
+    }
+}

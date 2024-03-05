@@ -2,3 +2,6 @@ results/
 wandb_login.ipynb
 .vscode/
 .venv/
+docs/
+plr_exercise.egg-info/
+

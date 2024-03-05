@@ -1,0 +1,13 @@
+2024-03-05 11:43:06,870 INFO    MainThread:12396 [wandb_setup.py:_flush():76] Current SDK version is 0.16.3
+2024-03-05 11:43:06,871 INFO    MainThread:12396 [wandb_setup.py:_flush():76] Configure stats pid to 12396
+2024-03-05 11:43:06,873 INFO    MainThread:12396 [wandb_setup.py:_flush():76] Loading settings from C:\Users\janbe\.config\wandb\settings
+2024-03-05 11:43:06,875 INFO    MainThread:12396 [wandb_setup.py:_flush():76] Loading settings from C:\Users\janbe\OneDrive\Dokumente\Schule\ETH\Master\FS24\PLR\plr-exercise\wandb\settings
+2024-03-05 11:43:06,876 INFO    MainThread:12396 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-03-05 11:43:06,877 INFO    MainThread:12396 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-03-05 11:43:06,879 INFO    MainThread:12396 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'scripts\\train.py', 'program_abspath': 'C:\\Users\\janbe\\OneDrive\\Dokumente\\Schule\\ETH\\Master\\FS24\\PLR\\plr-exercise\\scripts\\train.py', 'program': './scripts/train.py'}
+2024-03-05 11:43:06,882 INFO    MainThread:12396 [wandb_init.py:_log_setup():526] Logging user logs to C:\Users\janbe\OneDrive\Dokumente\Schule\ETH\Master\FS24\PLR\plr-exercise\wandb\run-20240305_114306-ogwqn469\logs\debug.log
+2024-03-05 11:43:06,884 INFO    MainThread:12396 [wandb_init.py:_log_setup():527] Logging internal logs to C:\Users\janbe\OneDrive\Dokumente\Schule\ETH\Master\FS24\PLR\plr-exercise\wandb\run-20240305_114306-ogwqn469\logs\debug-internal.log
+2024-03-05 11:43:06,885 INFO    MainThread:12396 [wandb_init.py:init():566] calling init triggers
+2024-03-05 11:43:06,886 INFO    MainThread:12396 [wandb_init.py:init():573] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.002, 'epochs': 2}
+2024-03-05 11:43:06,887 INFO    MainThread:12396 [wandb_init.py:init():611] wandb.init() called when a run is still active
