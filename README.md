@@ -169,6 +169,16 @@ study.best_params  # E.g. {'x': 2.002108042}
 Add docstrings to all classes and functions: [https://peps.python.org/pep-0257/](https://peps.python.org/pep-0257/)  
 Here are some workflows by the RSL that may help you: [https://github.com/leggedrobotics/workflows](https://github.com/leggedrobotics/workflows)
 
+### Task 6 (Bonus) 
+Use TensorBoard 
+start by downloading TensorBoard
+
+```
+pip install tensorboard
+```
+A good start will be: https://pytorch.org/tutorials/recipes/recipes/tensorboard_with_pytorch.html
+
+
 
 ## Things we did not cover
 - Timing - check out the `timing.py` and try to understand why the times are different 
