@@ -4,6 +4,7 @@ import torch.nn.functional as F
 
 
 class Net(nn.Module):
+    """ CNN model """
     def __init__(self):
 
         super(Net, self).__init__()

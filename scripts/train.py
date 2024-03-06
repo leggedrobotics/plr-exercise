@@ -39,7 +39,15 @@ class Net(nn.Module):
 
 
 def train(args, model, device, train_loader, optimizer, epoch):
-    """ The training stage """
+    """
+    The training stage
+    @param args: input argument parser
+    @param model: input CNN model
+    @param device: determine using CUDA or not
+    @param train_loader: data loader
+    @param optimizer: input optimizer for training
+    @param epoch: count the number of epoch
+    """
     model.train()
     for batch_idx, (data, target) in enumerate(train_loader):
 
@@ -66,7 +74,13 @@ def train(args, model, device, train_loader, optimizer, epoch):
 
 
 def test(model, device, test_loader, epoch):
-    """ The testing stage """
+    """ 
+    The testing stage 
+    @param model: input CNN model
+    @param device: determine using CUDA or not
+    @param test_loader: data loader for testing
+    @param epoch: count the number of epoch
+    """
     model.eval()
     test_loss = 0
     correct = 0
@@ -90,6 +104,8 @@ def test(model, device, test_loader, epoch):
 
 
 def main():
+    """ main function to run the training """
+    
     # Training settings
     parser = argparse.ArgumentParser(description="PyTorch MNIST Example")
     parser.add_argument(
