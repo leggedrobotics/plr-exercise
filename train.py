@@ -6,6 +6,8 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torchvision import datasets, transforms
 from torch.optim.lr_scheduler import StepLR
+import optuna
+
 
 
 class Net(nn.Module):
@@ -34,6 +36,22 @@ class Net(nn.Module):
         x = self.fc2(x)
         output = F.log_softmax(x, dim=1)
         return output
+
+def objective(trial, device, args, train_loader, test_loader):
+
+    lr = trial.suggest_loguniform('lr', 1e-5, 1e-1)
+    epochs = trial.suggest_int('epochs', 1, 20)
+
+    model = Net().to(device)
+    optimizer = optim.Adam(model.parameters(), lr=lr)
+    scheduler = StepLR(optimizer, step_size=1, gamma=args.gamma)
+
+    for epoch in range(epochs):
+        train(args, model, device, train_loader, optimizer, epoch)
+        accuracy = test(model, device, test_loader, epoch)
+        scheduler.step()
+   
+    return -accuracy
 
 
 def train(args,    model, device, train_loader, optimizer, epoch):
@@ -140,6 +158,20 @@ def main():
 
     if args.save_model:
         torch.save(model.state_dict(), "mnist_cnn.pt")
+
+    def objective_wrapper(trial):
+        return objective(trial, device, args, train_loader, test_loader)
+
+    study = optuna.create_study(direction='maximize')
+    study.optimize(objective_wrapper, n_trials=100) 
+ 
+    print('Best trial:')
+    trial = study.best_trial
+    
+    print(f'  Value: {-trial.value}')
+    print(f'  Learning Rate: {trial.params["lr"]}')
+    print(f'  Epochs: {trial.params["epochs"]}')
+    
 
 
 if __name__ == "__main__":
