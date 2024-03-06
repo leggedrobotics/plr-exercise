@@ -38,12 +38,22 @@ def main():
     # Training settings
     parser = argparse.ArgumentParser(description="PyTorch MNIST Example")
     parser.add_argument(
-        "--batch-size", type=int, default=64, metavar="N", help="input batch size for training (default: 64)"
+        "--batch-size",
+        type=int,
+        default=64,
+        metavar="N",
+        help="input batch size for training (default: 64)",
     )
     parser.add_argument(
-        "--test-batch-size", type=int, default=1000, metavar="N", help="input batch size for testing (default: 1000)"
+        "--test-batch-size",
+        type=int,
+        default=1000,
+        metavar="N",
+        help="input batch size for testing (default: 1000)",
     )
-    parser.add_argument("--no-cuda", action="store_true", default=False, help="disables CUDA training")
+    parser.add_argument(
+        "--no-cuda", action="store_true", default=False, help="disables CUDA training"
+    )
     args = parser.parse_args()
     use_cuda = not args.no_cuda and torch.cuda.is_available()
 
@@ -61,7 +71,9 @@ def main():
         train_kwargs.update(cuda_kwargs)
         test_kwargs.update(cuda_kwargs)
 
-    transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))])
+    transform = transforms.Compose(
+        [transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))]
+    )
     dataset1 = datasets.MNIST("../data", train=True, download=True, transform=transform)
     train_loader = torch.utils.data.DataLoader(dataset1, **train_kwargs)
     data, target = next(iter(train_loader))
