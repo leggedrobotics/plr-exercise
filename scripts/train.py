@@ -6,6 +6,7 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torchvision import datasets, transforms
 from torch.optim.lr_scheduler import StepLR
+import wandb
 
 
 class Net(nn.Module):
@@ -55,6 +56,8 @@ def train(args, model, device, train_loader, optimizer, epoch):
                     loss.item(),
                 )
             )
+            # log metrics to wandb
+            wandb.log({"loss": loss.item()})
             if args.dry_run:
                 break
 
@@ -91,8 +94,8 @@ def main():
     parser.add_argument(
         "--test-batch-size", type=int, default=1000, metavar="N", help="input batch size for testing (default: 1000)"
     )
-    parser.add_argument("--epochs", type=int, default=2, metavar="N", help="number of epochs to train (default: 14)")
-    parser.add_argument("--lr", type=float, default=1.0, metavar="LR", help="learning rate (default: 1.0)")
+    parser.add_argument("--epochs", type=int, default=10, metavar="N", help="number of epochs to train (default: 14)")
+    parser.add_argument("--lr", type=float, default=0.02, metavar="LR", help="learning rate (default: 1.0)")
     parser.add_argument("--gamma", type=float, default=0.7, metavar="M", help="Learning rate step gamma (default: 0.7)")
     parser.add_argument("--no-cuda", action="store_true", default=False, help="disables CUDA training")
     parser.add_argument("--dry-run", action="store_true", default=False, help="quickly check a single pass")
@@ -122,6 +125,20 @@ def main():
         train_kwargs.update(cuda_kwargs)
         test_kwargs.update(cuda_kwargs)
 
+    # start a new wandb run to track this script
+    wandb.init(
+        # set the wandb project where this run will be logged
+        project="my-plr-exercise",
+        
+        # track hyperparameters and run metadata
+        config={
+        "learning_rate": 0.02,
+        "architecture": "CNN",
+        "dataset": "MNIST",
+        "epochs": 10,
+        }
+    )
+
     transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))])
     dataset1 = datasets.MNIST("../data", train=True, download=True, transform=transform)
     dataset2 = datasets.MNIST("../data", train=False, transform=transform)
@@ -139,6 +156,8 @@ def main():
 
     if args.save_model:
         torch.save(model.state_dict(), "mnist_cnn.pt")
+    
+    wandb.finish()
 
 
 if __name__ == "__main__":
