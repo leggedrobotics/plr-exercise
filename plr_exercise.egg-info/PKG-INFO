@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: plr_exercise
+Version: 1.0.0
+Summary: A small example package
+Author: Jonas Frey
+Author-email: jonfrey@ethz.ch
+Requires-Python: >=3.7
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: torch>=1.21
