@@ -11,6 +11,7 @@ import optuna
 
 
 class Net(nn.Module):
+    """ The CNN model """
     def __init__(self):
 
         super(Net, self).__init__()
@@ -38,6 +39,7 @@ class Net(nn.Module):
 
 
 def train(args, model, device, train_loader, optimizer, epoch):
+    """ The training stage """
     model.train()
     for batch_idx, (data, target) in enumerate(train_loader):
 
@@ -64,6 +66,7 @@ def train(args, model, device, train_loader, optimizer, epoch):
 
 
 def test(model, device, test_loader, epoch):
+    """ The testing stage """
     model.eval()
     test_loss = 0
     correct = 0
