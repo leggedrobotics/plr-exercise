@@ -93,6 +93,7 @@ Take a look here: [https://github.com/psf/black](https://github.com/psf/black)
 pip3 install black
 black --line-length 120 ~/git/plr-exercise
 ```
+Change the path in black command to the path of your cloned repository. Notice that if it starts with ~/, it is a shortcut for your home directory (/home/<Your Username>). 
 Now everything looks pretty.
 
 
