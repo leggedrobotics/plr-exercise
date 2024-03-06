@@ -1,6 +1,7 @@
 from __future__ import print_function
 import argparse
 import torch
+import wandb
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
@@ -43,6 +44,9 @@ def train(args, model, device, train_loader, optimizer, epoch):
         optimizer.zero_grad()
         output = model(data)
         loss = F.nll_loss(output, target)
+        
+        wandb.log({"training_loss": loss.item()})
+        
         loss.backward()
         optimizer.step()
         if batch_idx % args.log_interval == 0:
@@ -74,6 +78,7 @@ def test(model, device, test_loader, epoch):
             correct += pred.eq(target.view_as(pred)).sum().item()
 
     test_loss /= len(test_loader.dataset)
+    wandb.log({"test_loss": test_loss})
 
     print(
         "\nTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n".format(
@@ -84,6 +89,7 @@ def test(model, device, test_loader, epoch):
 
 def main():
     # Training settings
+    wandb.init(project="plr_exercise_mnist")
     parser = argparse.ArgumentParser(description="PyTorch MNIST Example")
     parser.add_argument(
         "--batch-size", type=int, default=64, metavar="N", help="input batch size for training (default: 64)"
@@ -130,6 +136,8 @@ def main():
 
     model = Net().to(device)
     optimizer = optim.Adam(model.parameters(), lr=args.lr)
+    
+    wandb.watch(model, log="all")
 
     scheduler = StepLR(optimizer, step_size=1, gamma=args.gamma)
     for epoch in range(args.epochs):
