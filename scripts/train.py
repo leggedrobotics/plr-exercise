@@ -47,6 +47,7 @@ def train(args, model, device, train_loader, optimizer, epoch):
     @param train_loader: data loader
     @param optimizer: input optimizer for training
     @param epoch: count the number of epoch
+    @return null
     """
     model.train()
     for batch_idx, (data, target) in enumerate(train_loader):
@@ -80,6 +81,7 @@ def test(model, device, test_loader, epoch):
     @param device: determine using CUDA or not
     @param test_loader: data loader for testing
     @param epoch: count the number of epoch
+    @return null
     """
     model.eval()
     test_loss = 0
