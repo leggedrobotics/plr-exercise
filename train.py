@@ -2,12 +2,29 @@ from __future__ import print_function
 import argparse
 import torch
 import wandb
+import optuna
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 from torchvision import datasets, transforms
 from torch.optim.lr_scheduler import StepLR
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+#objecvtive function
+def objective(trial, train_loader, test_loader, args):
+    # Suggested learning rate and epochs
+    lr = trial.suggest_loguniform('lr', 1e-5, 1e-1)
+    epochs = trial.suggest_int('epochs', 1, 10)
+
+    model = Net().to(device)
+    optimizer = torch.optim.Adam(model.parameters(), lr=lr)
+
+    for epoch in range(epochs):
+        print(f"Epoch {epoch}")
+        train(args, model, device, train_loader, optimizer, epoch)
+        accuracy = test(model, device, test_loader, epoch)
+
+    return -accuracy
 
 class Net(nn.Module):
     def __init__(self):
@@ -78,6 +95,7 @@ def test(model, device, test_loader, epoch):
             correct += pred.eq(target.view_as(pred)).sum().item()
 
     test_loss /= len(test_loader.dataset)
+    accuracy = 100.0 * correct / len(test_loader.dataset)
     wandb.log({"test_loss": test_loss})
 
     print(
@@ -85,6 +103,7 @@ def test(model, device, test_loader, epoch):
             test_loss, correct, len(test_loader.dataset), 100.0 * correct / len(test_loader.dataset)
         )
     )
+    return accuracy
 
 
 def main():
@@ -138,6 +157,16 @@ def main():
     optimizer = optim.Adam(model.parameters(), lr=args.lr)
     
     wandb.watch(model, log="all")
+
+    # optuna task
+    def objective_wrapper(trial):
+        return objective(trial, train_loader, test_loader, args)
+    study = optuna.create_study()
+    study.optimize(
+        objective_wrapper, 
+        n_trials=10)
+
+    study.best_params  # E.g. {'x': 2.002108042}
 
     scheduler = StepLR(optimizer, step_size=1, gamma=args.gamma)
     for epoch in range(args.epochs):
