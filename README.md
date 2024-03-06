@@ -52,7 +52,7 @@ Activate under General the following Features:
 You at first create a fork of the plr-exercise repository under your local GitHub username.  
 For each task you create a branch called: `dev/task_X`  
 You commit all the changes necessary for this task to this branch and push the changes to GitHub.  
-To finish a task you create a pull request from `dev/task_X` to `main`. 
+To finish a task, you create a pull request from `dev/task_X` to `main`. 
 The title of the pull request is the task description below.  
 Do not delete the branches after merging the PR.  
 
@@ -60,10 +60,9 @@ Task Descriptions:
 - **Task 0:** Run train.py and create an issue and complain about your low test score.
 - **Task 1:** Improve the formatting using black
 - **Task 2:** Create a python package for your project
-- **Task 3:** Add a online logging framework
+- **Task 3:** Add an online logging framework
 - **Task 4:** Use optuna to perform a hyperparameter search
 - **Task 5:** Add docstrings to every file.
-
 
 ### Overview
 You are given the `train.py` script.
@@ -109,7 +108,7 @@ We would like the repository structure to look as follows:
 
 ```yaml
 project_name:
-├──results:	
+├──results: 
 │    ├──YEAR_MONTH_DAY_TIME_experiment_name:
 │        ├──results.yml 
 │        └──....
@@ -177,11 +176,11 @@ Here are some workflows by the RSL that may help you: [https://github.com/legged
 
 ## Bonus points
 
-You can get bonus points if you improve this version of this README by fixing errors or adding other usefull "tasks" below that you think will help others.
+You can get bonus points if you improve this version of this README by fixing errors or adding other useful "tasks" below that you think will help others.
 This may include: 
-- Improved Reproducability
+- Improved Reproducibility
 - Visualization
 - Configuration with Hydra, OmegaConfiguration
 - Measuring the time
 
-## Other usefull tasks [Bonus Points]
+## Other useful tasks [Bonus Points]
