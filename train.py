@@ -10,9 +10,20 @@ from torchvision import datasets, transforms
 from torch.optim.lr_scheduler import StepLR
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-#objecvtive function
 def objective(trial, train_loader, test_loader, args):
-    # Suggested learning rate and epochs
+    """
+    Objective function for Optuna to optimize
+    
+    Parameters:
+    - trial (optuna.trial.Trial): A trial object from Optuna.
+    - train_loader (torch.utils.data.DataLoader): DataLoader for the training dataset.
+    - test_loader (torch.utils.data.DataLoader): DataLoader for the test dataset.
+    - args: Command-line arguments.
+
+    Returns:
+    - float: The negative accuracy of the model on the test dataset, to be minimized.
+    """
+    # Suggested hyperparameters learning rate and epochs to optimize
     lr = trial.suggest_loguniform('lr', 1e-5, 1e-1)
     epochs = trial.suggest_int('epochs', 1, 10)
 
@@ -27,8 +38,22 @@ def objective(trial, train_loader, test_loader, args):
     return -accuracy
 
 class Net(nn.Module):
-    def __init__(self):
+    """
+    A simple Convolutional Neural Network (CNN) model for classifying MNIST digits.
 
+    Attributes:
+    - conv1: First convolutional layer.
+    - conv2: Second convolutional layer.
+    - dropout1: Dropout layer after the first convolutional layer.
+    - dropout2: Dropout layer after the second convolutional layer.
+    - fc1: First fully connected layer.
+    - fc2: Second fully connected layer, outputting the logits for each class.
+    """
+    def __init__(self):
+        """
+        Initializes the CNN model with two convolutional layers, two dropout layers,
+        and two fully connected layers.
+        """
         super(Net, self).__init__()
         self.conv1 = nn.Conv2d(1, 32, 3, 1)
         self.conv2 = nn.Conv2d(32, 64, 3, 1)
@@ -54,6 +79,17 @@ class Net(nn.Module):
 
 
 def train(args, model, device, train_loader, optimizer, epoch):
+    """
+    Trains the model for one epoch.
+
+    Parameters:
+    - args: Command-line arguments.
+    - model (torch.nn.Module): The neural network model to train.
+    - device: The device (CPU or GPU) to train on.
+    - train_loader (torch.utils.data.DataLoader): DataLoader for the training dataset.
+    - optimizer (torch.optim.Optimizer): Optimizer for updating model parameters.
+    - epoch (int): The current epoch number.
+    """
     model.train()
     for batch_idx, (data, target) in enumerate(train_loader):
 
@@ -81,6 +117,18 @@ def train(args, model, device, train_loader, optimizer, epoch):
 
 
 def test(model, device, test_loader, epoch):
+    """
+    Evaluates the model on the test dataset.
+
+    Parameters:
+    - model (torch.nn.Module): The neural network model to evaluate.
+    - device: The device (CPU or GPU) for evaluation.
+    - test_loader (torch.utils.data.DataLoader): DataLoader for the test dataset.
+    - epoch (int): The current epoch number (used for logging).
+
+    Returns:
+    - float: The accuracy of the model on the test dataset.
+    """
     model.eval()
     test_loss = 0
     correct = 0
@@ -107,6 +155,13 @@ def test(model, device, test_loader, epoch):
 
 
 def main():
+    """
+    Main function to execute the training process including hyperparameter optimization with Optuna.
+
+    Parses command-line arguments, prepares the dataset, initializes the model, optimizer, and scheduler,
+    and then executes the Optuna optimization process to find the best hyperparameters.
+    Finally, trains and evaluates the model with the best found parameters.
+    """
     # Training settings
     wandb.init(project="plr_exercise_mnist")
     parser = argparse.ArgumentParser(description="PyTorch MNIST Example")
