@@ -1,0 +1,49 @@
+{
+    "os": "macOS-13.5-arm64-arm-64bit",
+    "python": "3.11.5",
+    "heartbeatAt": "2024-03-06T09:46:23.507168",
+    "startedAt": "2024-03-06T09:46:16.213853",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/Users/alexandreclin/Desktop/masterRobotic/2nd semester/2nd project 4cred/plr-exercise/train.py",
+    "codePathLocal": "train.py",
+    "codePath": "train.py",
+    "git": {
+        "remote": "https://github.com/alexxelaalexxela/plr-exercise.git",
+        "commit": "c4885ced56925a377306ac9c8b0af7c8f292e7c2"
+    },
+    "email": "alexandre.clin@orange.fr",
+    "root": "/Users/alexandreclin/Desktop/masterRobotic/2nd semester/2nd project 4cred/plr-exercise",
+    "host": "MacBook-Pro-de-Alexandre.local",
+    "username": "alexandreclin",
+    "executable": "/Users/alexandreclin/venv/plr/bin/python3",
+    "cpu_count": 10,
+    "cpu_count_logical": 10,
+    "cpu_freq": {
+        "current": 3504,
+        "min": 702,
+        "max": 3504
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3504,
+            "min": 702,
+            "max": 3504
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 460.4317207336426,
+            "used": 11.100791931152344
+        }
+    },
+    "gpuapple": {
+        "type": "arm",
+        "vendor": "Apple"
+    },
+    "memory": {
+        "total": 16.0
+    }
+}
