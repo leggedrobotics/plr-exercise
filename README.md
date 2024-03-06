@@ -185,3 +185,6 @@ This may include:
 - Measuring the time
 
 ## Other usefull tasks [Bonus Points]
+
+1. Install Cuda
+2. Apply Visualization-Tools for datasets like seaborn, matplotlib
