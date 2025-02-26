@@ -29,7 +29,7 @@ code ~/.bashrc
 alias venv_plr="source ~/venv/plr/bin/activate"
 ```
 
-## Transforming scrips into a software project
+## Transforming scripts into a software project
 Create a fork of the project on GitHub
 ```shell
 cd ~/git
@@ -38,18 +38,18 @@ git clone git@github.com:leggedrobotics/plr-exercise.git
 
 Replace `leggedrobotics` with your `username`.
 
-Small notice you can clone a repo using ssh or https. 
-I recommend to setup ssh-keys and always use ssh. 
+Note that you can clone a repository using SSH or HTTPS.
+I recommend setting up SSH keys and always using SSH.
 
 Then go to the Github Settings to right:  
 ![alt text](docs/repo.jpg)
 
 
-Activate under General the following Features:  
+Under General, activate the following features:
 ![alt text](docs/features.jpg)
 
 ### Submission instructions
-You at first create a fork of the plr-exercise repository under your local GitHub username.  
+First, create a fork of the plr-exercise repository under your GitHub username. 
 For each task you create a branch called: `dev/task_X`  
 You commit all the changes necessary for this task to this branch and push the changes to GitHub.  
 To finish a task you create a pull request from `dev/task_X` to `main`. 
@@ -139,7 +139,7 @@ Add wandb logger.
 pip3 install wandb
 ```
 Follow the quickstart guide here: [https://docs.wandb.ai/quickstart](https://docs.wandb.ai/quickstart)  
-Log the training_loss, test_loss, and your code as an artificat.  
+Log the training_loss, test_loss, and your code as an artifact.  
 Create a PR with a screenshot of a run with the loss curve and the uploaded source code artifact.  
 
 
@@ -177,11 +177,11 @@ Here are some workflows by the RSL that may help you: [https://github.com/legged
 
 ## Bonus points
 
-You can get bonus points if you improve this version of this README by fixing errors or adding other usefull "tasks" below that you think will help others.
+You can get bonus points if you improve this version of this README by fixing errors or adding other useful "tasks" below that you think will help others.
 This may include: 
-- Improved Reproducability
+- Improved Reproducibility
 - Visualization
 - Configuration with Hydra, OmegaConfiguration
 - Measuring the time
 
-## Other usefull tasks [Bonus Points]
+## Other useful tasks [Bonus Points]
