@@ -1,0 +1,40 @@
+[project]
+name = "plr"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+dependencies = [
+    "numpy",    "torch",
+    "pytictac",
+    "pre-commit",
+    "ruff",
+    "wandb",
+    "matplotlib",
+    "notebook",
+]
+authors = [{ name = "Jonas Frey", email = "jonfrey@ethz.ch" }]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: MIT",
+    "Operating System :: Linux 20.04",
+    "Programming Language :: Python :: 3.8",
+]
+
+[tool.setuptools]
+packages = ["plr"]
+
+[tool.black]
+line-length = 120
+target-version = ['py38']
+
+[tool.ruff]
+line-length = 120
+target-version = "py38"
+select = ["E", "F", "W"]  # Enable error, flake8, and warnings
+ignore = ["E741", "E501"]
+
+[tool.mypy]
+python_version = "3.8"
+strict = true
